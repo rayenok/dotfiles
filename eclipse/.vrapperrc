@@ -1,0 +1,20 @@
+set autoindent
+set number
+set regexsearch
+set startnormalmode
+set hlsearch
+set incsearch
+set autochdir
+
+nnoremap ,q :q<cr>
+nnoremap ,w :w<cr>
+
+nnoremap ci( %ci(
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap <c-o> <c-o>zz
+
