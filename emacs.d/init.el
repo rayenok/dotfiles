@@ -250,6 +250,7 @@
 (setq org-plantuml-jar-path
       (expand-file-name "~/.emacs.d/plantuml.jar"))
 
+;; (require 'org-babel-gnuplot)
 ;;Ejecutar codigo en org mode
 (org-babel-do-load-languages 'org-babel-load-languages
        '((sh . t)
