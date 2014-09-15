@@ -209,7 +209,6 @@
 ;; (add-to-list 'org-export-latex-packages-alist' ("" "listings"))
 ;; (add-to-list 'org-export-latex-packages-alist' ("" "color"))
 
-(add-hook 'org-mode-hook 'org-indent-mode)
 
 
 
@@ -849,6 +848,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (org-map-entries '(org-set-property "REPEAT_TO_STATE" "HABIT")
                  "+STYLE=\"HABIT\"" 'agenda)
 
+;; Clean view - org mode
+(add-hook 'org-mode-hook 'org-indent-mode)
+
 ;; Agenda full screen
 (defadvice org-agenda-list (around org-agenda-fullscreen activate)
   ad-do-it
@@ -890,6 +892,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-agenda-ndays 7)
  '(org-agenda-show-all-dates t)
+ '(org-agenda-use-time-grid nil)
  '(org-agenda-skip-deadline-if-done nil)
  '(org-agenda-skip-scheduled-if-deadline-is-shown t)
  '(org-agenda-skip-scheduled-if-done t)
