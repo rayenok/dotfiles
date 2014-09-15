@@ -17,7 +17,8 @@ map <C-j> nextTab
 map <C-k> previousTab
 map - /
 unmap s
-map s :tabnew google<space> 
+map s :o google<space> 
+map S :tabnew google<space> 
 
 " Insert mode
 imap <C-a> beginningOfLine
