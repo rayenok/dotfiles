@@ -837,9 +837,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (require 'org-install)
 (require 'org-habit)
 (add-to-list 'org-modules "org-habit")
-(setq org-habit-preceding-days 7
-      org-habit-following-days 1
-      org-habit-graph-column 80
+(setq org-habit-preceding-days 0
+      org-habit-following-days 0
+      ;; org-habit-graph-column 90
       org-habit-show-habits-only-for-today t
       ;; org-habit-show-habits-only-for-today nil
       org-habit-show-all-today nil)
@@ -857,6 +857,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (delete-other-windows))
 (setq org-agenda-restore-windows-after-quit t)
 (setq org-agenda-sticky nil)
+
+;; Place tags close to the right-hand side of the window
+(add-hook 'org-finalize-agenda-hook 'place-agenda-tags)
+(defun place-agenda-tags ()
+  "Put the agenda tags by the right border of the agenda window."
+  (setq org-agenda-tags-column (- 4 (window-width)))
+  (org-agenda-align-tags))
 
 ;; Evil mode and agenda
 (define-key org-agenda-mode-map "j" 'evil-next-line)
@@ -887,8 +894,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ediff-split-win-window-function (quote split-window-horizontally))
- '(org-agenda-custom-commands (quote (("d" todo "DELEGATED" nil) ("c" todo "DONE|DEFERRED|CANCELLED" nil) ("w" todo "WAITING" nil) ("W" agenda "" ((org-agenda-ndays 21))) ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]"))) (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: "))) ("u" alltodo "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "
-]+>"))) (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
+ '(org-agenda-custom-commands (quote (
+                                      ("d" todo "DELEGATED" nil)
+                                      ("c" todo "DONE|DEFERRED|CANCELLED" nil)
+                                      ("w" todo "WAITING" nil)
+                                      ("h" tags-todo "seguridad")
+                                      ("W" agenda "" ((org-agenda-ndays 21)))
+                                      ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]"))) (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
+                                      ("u" alltodo "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>"))) (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
  '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-agenda-ndays 7)
  '(org-agenda-show-all-dates t)
