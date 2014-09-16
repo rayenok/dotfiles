@@ -10,6 +10,7 @@ let scrollduration = 10
 let searchlimit = 40
 let searchengine mdn = "https://developer.mozilla.org/en-US/search?q="
 let searchengine stackoverflow = "http://stackoverflow.com/search?q="
+let searchengine youtube = "https://www.youtube.com/results?search_query="
 let searchalias s = "stackoverflow"
 let searchalias g = "google"
 let qmark b = ["http://www.reddit.com/", "https://github.com/"]
@@ -17,8 +18,10 @@ map <C-j> nextTab
 map <C-k> previousTab
 map - /
 unmap s
-map s :o google<space> 
-map S :tabnew google<space> 
+map ss :o google<space> 
+map sS :tabnew google<space> 
+map sy :o youtube<space> 
+map sY :tabnew youtube<space> 
 
 " Insert mode
 imap <C-a> beginningOfLine
