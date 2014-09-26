@@ -52,8 +52,7 @@
 ;; (fullscreen)
 
 
-(set-default-font "Inconsolata-12")
-(set-face-attribute 'default nil :height 95)
+(set-default-font "Inconsolata-10")
 
 ;; window 70%
 (defun window-resize-to-70-percent ()
@@ -828,8 +827,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq org-clock-out-when-done t)
 
 (setq org-capture-templates 
-      '(("t" "Todo" entry(file+headline "~/org/todo.org" "Tasks") "* TODO %? %u %^G") 
+      '(("t" "Todo" entry(file+headline "~/org/todo.org" "Tasks") "* TODO %? %^G") 
         ("T" "Todo" entry(file+headline "~/org/todo.org" "Tasks") "* TODO %? [[%F][link]] %u %^G") 
+        ("o" "Target" entry(file+headline "~/org/todo.org" "Targets") (file "~/org/templates/target.org"))
+        ("m" "Música" entry(file+olp "~/org/todo.org" "Tasks" "Descargar música") "* TODO [[%^{Link}][%^{Nombre y grupo}]] ") 
+        ("p" "Película" entry(file+olp "~/org/todo.org" "Tasks" "Descargar película") "* TODO %^{Película} ") 
+        ("s" "Serie" entry(file+olp "~/org/todo.org" "Tasks" "Descargar serie") "* TODO %^{Serie} ") 
         ("n" "Notes" entry(file "~/org/notes.org" "Notes") "* %U  %?")))
 
 ;; Habits
@@ -888,6 +891,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key org-agenda-mode-map (kbd "SPC") 'org-agenda-bulk-mark)
 
 
+(setq org-agenda-todo-ignore-scheduled 'future)
+(setq org-agenda-tags-todo-honor-ignore-options t)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -898,7 +905,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                                       ("d" todo "DELEGATED" nil)
                                       ("c" todo "DONE|DEFERRED|CANCELLED" nil)
                                       ("w" todo "WAITING" nil)
-                                      ("h" tags-todo "seguridad")
+                                      ("z" tags-todo "seguridad")
+                                      ("x" tags-todo "mistic")
+                                      ("o" tags-todo "target")
                                       ("W" agenda "" ((org-agenda-ndays 21)))
                                       ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]"))) (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
                                       ("u" alltodo "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>"))) (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
