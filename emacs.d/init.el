@@ -52,7 +52,6 @@
 ;; (fullscreen)
 
 
-(set-default-font "Inconsolata-10")
 
 ;; window 70%
 (defun window-resize-to-70-percent ()
@@ -943,8 +942,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight bold :height 86 :width normal))))
+ ;; '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight bold :height 86 :width normal))))
  '(org-block-background ((t (:background "gray12"))))
  '(org-clock-overlay ((t nil)))
  '(org-level-1 ((t (:inherit outline-1 :background "gray21" :foreground "white")))))
 (put 'narrow-to-region 'disabled nil)
+
+;; Font
+(set-default-font "Inconsolata-10")

@@ -32,7 +32,8 @@ Xft*hinting:            full
 # Copy and paste using the keyboard
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: False
-URxvt.perl-ext-common: default,clipboard
+/* URxvt.perl-ext-common: default,clipboard *1/ */
+URxvt.perl-ext-common: osc-xterm-clipboard
 
  
 URxvt*color0:      #000000
