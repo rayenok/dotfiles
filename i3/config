@@ -215,6 +215,16 @@ bindsym $mod+Shift+y move scratchpad
 bindsym $mod+Control+Shift+h move workspace to output DVI-D-0
 bindsym $mod+Control+Shift+l move workspace to output DVI-I-1
 
+# move scratchpad
+bindsym $modSuper+h move container to output DVI-D-0
+bindsym $modSuper+l move container to output DVI-I-1
+
+# like $mod+y but undoing all the changes
+bindsym $modSuper+u floating toggle; move scratchpad
+
+bindsym $modSuper+Shift+h move container to output DVI-D-0; focus output left; focus floating
+bindsym $modSuper+Shift+l move container to output DVI-I-1; focus output right; focus floating
+
 # reload the configuration file
 bindsym $mod+Shift+i reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -222,10 +232,6 @@ bindsym $mod+Shift+u restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Z exit
 
-# bindsym $mod+Control+Shift+h resize shrink width 10 px or 10 ppt
-# bindsym $mod+Control+Shift+j resize grow height 10 px or 10 ppt
-# bindsym $mod+Control+Shift+k resize shrink height 10 px or 10 ppt
-# bindsym $mod+Control+Shift+l resize grow width 10 px or 10 ppt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
