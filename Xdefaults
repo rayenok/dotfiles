@@ -29,10 +29,12 @@ Xft*dpi:                96
 Xft*antialias:          true
 Xft*hinting:            full
 
+URxvt*font:               xft:Inconsolata:style=Semibold:pixelsize=12:antialias=true:hinting=slight
+URxvt*boldFont:           xft:Inconsolata:style=bold:pixelsize=12:antialias=true:hinting=slight
+
 # Copy and paste using the keyboard
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: False
-/* URxvt.perl-ext-common: default,clipboard *1/ */
 URxvt.perl-ext-common: osc-xterm-clipboard
 
  
