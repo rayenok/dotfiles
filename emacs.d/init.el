@@ -919,7 +919,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-start-on-weekday nil)
  '(org-clock-into-drawer "CLOCK")
- '(org-deadline-warning-days 3)
+ '(org-deadline-warning-days 7)
  '(org-default-notes-file "~/notes.org")
  '(org-emphasis-alist (quote (("*" bold verbatim) ("/" italic) ("_" underline) ("=" org-code verbatim) ("~" org-verbatim verbatim) ("+" (:strike-through t)))))
  '(org-fast-tag-selection-single-key (quote expert))
