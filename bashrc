@@ -86,6 +86,7 @@ fi
 alias vkill='kill $(ps aux|grep firefox|grep opt|grep -Eow [0-9]{5})'
 alias r='ranger'
 alias vlc='vlc --control dbus'
+alias v='vim --remote-silent'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -98,7 +99,7 @@ fi
 
 # }}}
 # Exports ----------------------------------------------------------------- {{{
-export PATH=$PATH:/home/rayenok/.eclipse/:/home/rayenok/software/:/home/rayenok/.sdk/tools/:/home/rayenok/.eclipse
+export PATH=$PATH:/home/rayenok/.eclipse/:/home/rayenok/software/:/home/rayenok/.sdk/tools/:/home/rayenok/.eclipse:/media/Zero/aplicaciones/linux/Shotcut/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/lib/i386-linux-gnu/
 export JAVA_HOME=/usr/lib/jvm/default-java
 export EDITOR=/usr/bin/vim 
