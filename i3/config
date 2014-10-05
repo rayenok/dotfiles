@@ -343,21 +343,13 @@ exec google-musicmanager
 # Applications execution {{{
 
 exec --no-startup-id i3-msg 'workspace 1: emacs; exec (emacs -name "Emacs_main")&'
-# exec --no-startup-id i3-msg 'workspace 2: www; exec firefox'
 exec --no-startup-id i3-msg 'workspace 2: www; exec google-chrome'
-# exec --no-startup-id i3-msg 'workspace 3; exec (urxvtcd -name "vim" -e vim)& '
 exec --no-startup-id i3-msg 'workspace 3; exec (terminator -c "vim" -e "vim --servername vim_i3")& '
 exec --no-startup-id i3-msg 'workspace 4: term; exec urxvtcd'
-# exec --no-startup-id i3-msg 'workspace 4: term; exec urxvtcd'
-exec --no-startup-id i3-msg 'exec (urxvtcd -name "ranger" -fn "7x13" -e ranger)&'
 exec --no-startup-id i3-msg 'workspace w: email; exec (urxvtcd -name "mutt" -e mutt)&'
-# exec --no-startup-id i3-msg 'exec (terminator -c "MOC" -e mocp)&'
-exec --no-startup-id i3-msg 'exec (urxvtcd -T "MOC" -e mocp)&'
-# exec --no-startup-id i3-msg 'workspace s: beta; exec google-chrome'
-# exec --no-startup-id i3-msg 'exec (terminator -c "scratchpad" -e bash -c "tmux attach -t scratchpad || tmux new-session -s scratchpad")&'
-exec --no-startup-id i3-msg 'exec (urxvtcd -name "scratchpad" -e bash -c "tmux attach -t scratchpad || tmux new-session -s scratchpad")&'
-# exec --no-startup-id i3-msg 'exec (emacs -name "Emacs_scratchpad" -g 133x55+480+135 --no-splash --funcall "org-agenda-list")&'
-exec --no-startup-id i3-msg 'exec (emacs -name "Emacs_scratchpad" -g 134x57+483+136 --no-splash --funcall "org-agenda-list")&'
-
+exec --no-startup-id urxvtcd -name "ranger" -fn "7x13" -e ranger
+exec --no-startup-id urxvtcd -T "MOC" -e mocp
+exec --no-startup-id urxvtcd -name "scratchpad" -e bash -c "tmux attach -t scratchpad || tmux new-session -s scratchpad"
+exec --no-startup-id emacs -name "Emacs_scratchpad" -g 134x57+483+136 --no-splash --funcall "org-agenda-list"
 
 #
