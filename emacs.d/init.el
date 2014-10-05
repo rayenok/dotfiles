@@ -1,7 +1,6 @@
 ;; -*- folded-file: t; -*-
-(add-to-list 'load-path "org-root-dir/contrib/lisp")
 
-;; Variables
+;; VARIABLES
 (setq user-full-name "Eric Nova Ibáñez")
 (setq user-mail-address "ericnova3@gmail.com")
 
@@ -10,6 +9,8 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
+
+;; (add-to-list 'load-path "~/usr/share/emacs24/org-mode/contrib/lisp" t)
 
 ;; Cursor
 (setq evil-default-cursor (quote (t "green")))
@@ -148,11 +149,17 @@
 (evil-leader/set-key "pr" 'winner-redo)
 (evil-leader/set-key "pp" 'winner-undo)
 
+
 (evil-leader/set-key "mci" 'org-clock-in)
 (evil-leader/set-key "mco" 'org-clock-out)
 (evil-leader/set-key "mcc" 'org-clock-jump-to-current-clock)
 (evil-leader/set-key "mcs" 'org-clock-select-task)
 (evil-leader/set-key "mcx" 'org-clock-cancel)
+(evil-leader/set-key "im" 'iimage-mode)
+(evil-leader/set-key "io" (lambda () (interactive)(evil-ex "1,$ s/\\[\\[\\(file:\\.\\/images\\/screenshot-[0-9]+\\.png\\).*$/\\[\\[\\1\\]\\]/")))
+(evil-leader/set-key "ii" (lambda () (interactive)(evil-ex "1,$ s/\\[\\[\\(file:\\(\\.\\/images\\/screenshot-[0-9]+\\.png\\)\\)\\]\\]/\\[\\[\\1\\]\\[\\2\\]\\]/")))
+
+;; (setq org-image-actual-width '(40))
 
 (define-key evil-normal-state-map "-" 'evil-search-forward)
 ;; Org mode special shortcuts
