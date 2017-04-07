@@ -21,12 +21,6 @@ WHITE="\[\033[1;37m\]"
 DEFAULT_COLOR="\[\033[00m\]"
 BLACK_BACKGROUND="\[\e[41;1m\]"
 
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-            export TERM='xterm-256color'
-else
-            export TERM='xterm-color'
-fi
-
 # }}}
 # History control --------------------------------------------------------- {{{
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -44,10 +38,6 @@ export HISTSIZE=100000
 shopt -s cmdhist
 
 # }}}
-# Git --------------------------------------------------------------------- {{{
-source .git-prompt.sh
-    
-# }}}
 # Prompt ------------------------------------------------------------------ {{{
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -55,9 +45,9 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 if [ "$color_prompt" = yes ]; then
     #PS1="$DARK_GRAY[\t][\u@\h:$LIGHT_GRAY\w$DARK_GRAY]\$$DEFAULT_COLOR "
-    PS1="\n\[$DARK_GRAY┌─[\t]──[\u@\H:$LIGHT_GRAY\w$DARK_GRAY]\n$DARK_GRAY└──$LIGHT_GRAY\$(__git_ps1 '(%s)')$DARK_GRAY\$$DEFAULT_COLOR "
+    PS1="\n\[$DARK_GRAY┌─[\t]──[\u@\H:$LIGHT_GRAY\w$DARK_GRAY]\n$DARK_GRAY└──\$$DEFAULT_COLOR "
 else
-    PS1="\n\[$DARK_GRAY┌─[\t]──[\u@\H:$LIGHT_GRAY\w$DARK_GRAY]\n$DARK_GRAY└──$LIGHT_GRAY\$(__git_ps1 '(%s)')$DARK_GRAY\$$DEFAULT_COLOR "
+    PS1="\n\[$DARK_GRAY┌─[\t]──[\u@\H:$LIGHT_GRAY\w$DARK_GRAY]\n$DARK_GRAY└──\$$DEFAULT_COLOR "
     #PS1="$DARK_GRAY[\t][\u@\h:$LIGHT_GRAY\w$DARK_GRAY]\$$DEFAULT_COLOR "
 fi
 
@@ -84,9 +74,10 @@ fi
 #alias l='ls -CF'
 #alias vim='vim -X'
 alias vkill='kill $(ps aux|grep firefox|grep opt|grep -Eow [0-9]{5})'
-alias r='ranger'
+#alias r='ranger'
 alias vlc='vlc --control dbus'
 alias v='vim --remote-silent'
+alias tmux="TERM=screen-256color-bce tmux"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -109,3 +100,5 @@ export STUDIO_JDK=/usr/lib/jvm/java-7-oracle
 export MYVIMRC=/home/rayenok/.vimrc
 
 # }}}
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+

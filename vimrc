@@ -142,7 +142,7 @@ set background=dark
 let g:badwolf_tabline = 2
 let g:badwolf_html_link_underline = 0
 set t_Co=256
-colorscheme badwolf
+#colorscheme badwolf
 
 " Reload the colorscheme whenever we write the file.
 augroup color_badwolf_dev
@@ -229,7 +229,8 @@ nnoremap <Leader>jj :copen<cr>
 
 " nnoremap <Leader>jk :make<cr><cr><cr>:copen<cr><cr>
 
-" }}}
+" }dwolf
+"}}
 " Quick editing ----------------------------------------------------------- {{{
 
 nnoremap <Leader>x :bdelete<cr>
@@ -394,12 +395,6 @@ augroup END
 " }}}
 " }}}
 " Plugin settings --------------------------------------------------------- {{{
-" Pathogen {{{
-execute pathogen#infect()
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-"let g:Powerline_theme="skwp"
-" }}}
 " Commentary {{{
 
 nmap <leader>c <Plug>CommentaryLine
