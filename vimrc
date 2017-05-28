@@ -142,7 +142,7 @@ set background=dark
 let g:badwolf_tabline = 2
 let g:badwolf_html_link_underline = 0
 set t_Co=256
-#colorscheme badwolf
+colorscheme badwolf
 
 " Reload the colorscheme whenever we write the file.
 augroup color_badwolf_dev
@@ -174,10 +174,6 @@ endif
 
 " }}}
 " Convenience mappings ---------------------------------------------------- {{{
-" Save with W too
-command W w
-command Q q
-
 map <leader><leader> <c-^>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
@@ -216,21 +212,7 @@ nnoremap <leader>i :set list!<cr>
 
 " Insert Mode Completion 
 inoremap <c-f> <c-x><c-f>
-
-let g:SingleCompile_showquickfixiferror = 1
-let g:SingleCompile_showquickfixifwarning = 1
-let g:SingleCompile_showresultafterrun = 1
-let g:SingleCompile_silentcompileifshowquickfix = 1
-
-" nnoremap <Leader>jk :SCCompileRun<cr><cr><cr>:SCViewResult<cr><cr>
-nnoremap <Leader>jk :SCCompileRun<cr><cr>
-noremap <Leader>jm :cclose<cr>
-nnoremap <Leader>jj :copen<cr>
-
-" nnoremap <Leader>jk :make<cr><cr><cr>:copen<cr><cr>
-
-" }dwolf
-"}}
+"}}}
 " Quick editing ----------------------------------------------------------- {{{
 
 nnoremap <Leader>x :bdelete<cr>
@@ -395,99 +377,50 @@ augroup END
 " }}}
 " }}}
 " Plugin settings --------------------------------------------------------- {{{
-" Commentary {{{
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-nmap <leader>c <Plug>CommentaryLine
-xmap <leader>c <Plug>Commentary
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-augroup plugin_commentary
-    au!
-    au FileType htmldjango setlocal commentstring={#\ %s\ #}
-    au FileType clojurescript setlocal commentstring=;\ %s
-    au FileType lisp setlocal commentstring=;\ %s
-    au FileType puppet setlocal commentstring=#\ %s
-    au FileType fish setlocal commentstring=#\ %s
-augroup END
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'valloric/youcompleteme'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'sirver/ultisnips'
 
-" }}}
-" VimOrganizer {{{
-" I'd need to install Calendar.vim
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-au BufEnter *.org            call org#SetOrgFileType()
-let g:org_command_for_emacsclient = 'emacsclient'
-" }}}
-" SkyBison {{{
-" nnoremap : :<c-u>call SkyBison("")<cr>
-nnoremap <leader>ff :<c-u>call SkyBison("e ")<cr>
-nnoremap <leader>fb :<c-u>call SkyBison("b ")<cr>
-nnoremap <leader>fh :<c-u>call SkyBison("e ~/")<cr>
-" }}}
-" MRU {{{
-nnoremap <leader>fr :MRU<cr>
-let MRU_File = '/home/rayenok/.vim_mru_files'
-let MRU_Max_Menu_Entries = 20
-let MRU_Max_Entries = 20
-let MRU_Window_Height = 15
-" }}}
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 " Airline {{{
 let g:airline_powerline_fonts = 1
-" }}}
-" Fugitive {{{
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gx :Gread<cr>
-" nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gt :Git 
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
-nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gr :Gremove<cr>
-" nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
 
-" augroup ft_fugitive
-"     au!
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+    endif
 
-"     au BufNewFile,BufRead .git/index setlocal nolist
-" augroup END
+    " unicode symbols
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.paste = '∥'
+    let g:airline_symbols.whitespace = 'Ξ'
 
-" " "Hub"
-" nnoremap <leader>H :Gbrowse<cr>
-" vnoremap <leader>H :Gbrowse<cr>
-" }}}
-" Jedi-vim {{{
-" jedi.preload_module('os','socket','thread','sys')
-" }}}
-" Ctrl-P {{{
-" let g:ctrlp_follow_symlinks = 1
-
-" nnoremap <leader>ff :CtrlP ~/org/software/<cr>
-" let g:ctrlp_split_window = 0
-" let g:ctrlp_max_height = 20
-" let g:ctrlp_by_filename = 1
-
-" let ctrlp_filter_greps = "".
-"     \ "egrep -iv '\\.(" .
-"     \ "jar|class|swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
-"     \ ")$' | " .
-"     \ "egrep -v '^(\\./)?(" .
-"     \ "deploy/|lib/|classes/|libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|docs/build/" .
-"     \ ")'"
-
-" let my_ctrlp_git_command = "" .
-"     \ "cd %s && git ls-files --exclude-standard -co | " .
-"     \ ctrlp_filter_greps
-
-" }}}
-
-" Disable plugins:
-" Syntastic {{{
-" let g:syntastic_enable_signs = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_disabled_filetypes = ['html', 'rst']
-" let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-" let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+    " airline symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ''
 " }}}
 " }}}
 " Debug ------------------------------------------------------------------- {{{
