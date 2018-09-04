@@ -1,4 +1,0 @@
-nmap x :tabclose<cr>
-nmap d <C-d>
-nmap u <C-u>
-nmap \- /
