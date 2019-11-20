@@ -69,15 +69,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-#alias vim='vim -X'
 alias vkill='kill $(ps aux|grep firefox|grep opt|grep -Eow [0-9]{5})'
-#alias r='ranger'
+alias r='ranger'
 alias vlc='vlc --control dbus'
 alias v='vim --remote-silent'
-alias tmux="TERM=screen-256color-bce tmux"
+#alias tmux="TERM=screen-256color-bce tmux"
+#alias tmux="tmux -2 attach"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
