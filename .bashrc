@@ -87,15 +87,15 @@ fi
 
 # }}}
 # Exports ----------------------------------------------------------------- {{{
-export PATH=$PATH:/home/rayenok/.eclipse/:/home/rayenok/software/:/home/rayenok/.sdk/tools/:/home/rayenok/.eclipse:/media/Zero/aplicaciones/linux/Shotcut/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/lib/i386-linux-gnu/
-export JAVA_HOME=/usr/lib/jvm/default-java
 export EDITOR=/usr/bin/vim 
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-export JDK_HOME=/usr/lib/jvm/java-7-oracle
-export STUDIO_JDK=/usr/lib/jvm/java-7-oracle
 export MYVIMRC=/home/rayenok/.vimrc
-
 # }}}
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
 
+shopt -s autocd 
+
+set show-all-if-ambiguous on
+#"\t": menu-complete
+
+zsh
+
+zsh
