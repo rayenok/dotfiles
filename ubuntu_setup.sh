@@ -305,18 +305,6 @@ sudo apt-get install scrot
 # dotpeek <- only works on windows
 # dex2jar
 # kali
-# https://github.com/nccgroup/cachegrab
-# https://github.com/gamozolabs/applepie
-# https://www.reddit.com/r/hacking/comments/awc9u7/a_good_general_ctf_guide/
-# https://github.com/libvmi/libvmi
-# https://github.com/cea-sec/miasm
-# https://github.com/cea-sec/Sibyl
-# https://github.com/sgayou/rbasefind
-# https://github.com/avast-tl/retdec
-# https://www.offensivecon.org/trainings/2019/linux-kernel-exploitation-techniques.html
-
-
-
 
 # Configure language
 #echo "es_ES.UTF-8 UTF-8" > /etc/locale.gen \
