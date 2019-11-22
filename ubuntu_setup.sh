@@ -75,15 +75,15 @@ cd /tmp/
 wget https://github.com/jgm/pandoc/releases/download/2.7.1/pandoc-2.7.1-1-amd64.deb
 sudo dpkg -i pandoc-2.7.1-1-amd64.deb
 
-# Radare2
-cd /tmp/
-git clone https://github.com/radare/radare2.git
-mv radare2 /opt/
-cd /opt/
-sudo chown -R $USER:$USER radare2
-./configure
-sudo make
-sudo make install 
+# # Radare2
+# cd /tmp/
+# git clone https://github.com/radare/radare2.git
+# mv radare2 /opt/
+# cd /opt/
+# sudo chown -R $USER:$USER radare2
+# ./configure
+# sudo make
+# sudo make install 
 
 # nmap
 sudo apt-get install nmap
@@ -109,17 +109,17 @@ sudo make install
 wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 sudo pip3 install ropper
 
-# Botch
-cd /opt/
-sudo wget https://sourceforge.net/projects/bochs/files/bochs/2.6.9/bochs-2.6.9.tar.gz/download
-sudo mv download bochs.tar.gz
-sudo tar xvf bochs.tar.gz
-sudo rm -rf bochs.tar.gz
-sudo chown -R $USER:$USER bochs-2.6.9
-cd /opt/bochs-2.6.9
-sudo ./configure
-sudo make
-sudo make install 
+# # Botch
+# cd /opt/
+# sudo wget https://sourceforge.net/projects/bochs/files/bochs/2.6.9/bochs-2.6.9.tar.gz/download
+# sudo mv download bochs.tar.gz
+# sudo tar xvf bochs.tar.gz
+# sudo rm -rf bochs.tar.gz
+# sudo chown -R $USER:$USER bochs-2.6.9
+# cd /opt/bochs-2.6.9
+# sudo ./configure
+# sudo make
+# sudo make install 
 
 # z3
 cd /opt/
@@ -133,11 +133,11 @@ sudo make install
 #sudo pip2 install z3
 #sudo pip install z3
 
-# install beyond compare
-sudo apt-get install libqtwebkit4 libqt4-opengl
-cd /tmp/
-wget https://www.scootersoftware.com/bcompare-4.2.9.23626_amd64.deb
-sudo dpkg -i bcompare-4.2.9.23626_amd64.deb
+# # install beyond compare
+# sudo apt-get install libqtwebkit4 libqt4-opengl
+# cd /tmp/
+# wget https://www.scootersoftware.com/bcompare-4.2.9.23626_amd64.deb
+# sudo dpkg -i bcompare-4.2.9.23626_amd64.deb
 
 # ghidra
 cd /tmp
@@ -165,23 +165,23 @@ sudo apt-get install libssl-dev
 sudo pip install lief requests capstone keystone unicorn scapy scrapy numpy scipy matplotlib ipython
 sudo pip3 install lief requests capstone keystone unicorn scapy scrapy numpy scipy matplotlib ipython
 
-#spin (model checker)
-sudo git clone https://github.com/nimble-code/Spin.git /opt/spin/
-sudo chown -R $USER:$USER /opt/spin
-cd /opt/spin
-sudo apt-get install bison
-make
-cd Src
-sudo ln -s $PWD/spin /usr/bin/spin
-sudo apt-get install tk8.5
-sudo ln -s /usr/bin/wish8.5 /usr/bin/wish 
-sudo ln -s /opt/spin/optional_gui/ispin.tcl /usr/bin/ispin 
+# #spin (model checker)
+# sudo git clone https://github.com/nimble-code/Spin.git /opt/spin/
+# sudo chown -R $USER:$USER /opt/spin
+# cd /opt/spin
+# sudo apt-get install bison
+# make
+# cd Src
+# sudo ln -s $PWD/spin /usr/bin/spin
+# sudo apt-get install tk8.5
+# sudo ln -s /usr/bin/wish8.5 /usr/bin/wish 
+# sudo ln -s /opt/spin/optional_gui/ispin.tcl /usr/bin/ispin 
 
-#Mars (MIPS)
-cd /opt/
-sudo wget http://courses.missouristate.edu/kenvollmar/mars/MARS_4_5_Aug2014/Mars4_5.jar
-sudo chown -R $USER:$USER Mars4_5.jar
-sudo chmod +x Mars4_5.jar
+# #Mars (MIPS)
+# cd /opt/
+# sudo wget http://courses.missouristate.edu/kenvollmar/mars/MARS_4_5_Aug2014/Mars4_5.jar
+# sudo chown -R $USER:$USER Mars4_5.jar
+# sudo chmod +x Mars4_5.jar
 
 # cppchecker
 cd /opt/
@@ -209,12 +209,12 @@ sudo ln -s /opt/eclipse/eclipse /usr/bin/eclipse
 # Qemu
 sudo apt-get install qemu-kvm qemu virt-manager virt-viewer
 
-# Pycharm
-cd /tmp/
-wget https://download.jetbrains.com/python/pycharm-community-2019.1.tar.gz
-sudo tar xvf pycharm-community-2019.1.tar.gz -C /opt
-sudo chown -R $USER:$USER /opt/pycharm-community-2019.1
-sudo ln -s /opt/pycharm-community-2019.1/bin/pycharm.sh /usr/bin/pycharm
+# # Pycharm
+# cd /tmp/
+# wget https://download.jetbrains.com/python/pycharm-community-2019.1.tar.gz
+# sudo tar xvf pycharm-community-2019.1.tar.gz -C /opt
+# sudo chown -R $USER:$USER /opt/pycharm-community-2019.1
+# sudo ln -s /opt/pycharm-community-2019.1/bin/pycharm.sh /usr/bin/pycharm
 
 # VMware
 # Install manually
@@ -226,27 +226,27 @@ sudo apt-get install libqt5opengl5 libqt5printsupport5
 # IDA free version
 # Install manually
 
-# Kali <- ALERT: this steps break ubuntu for some reason
-sudo git clone https://github.com/LionSec/katoolin.git /opt/katoolin/
-sudo chown -R $USER:$USER /opt/katoolin
-cd /opt/katoolin
-sudo chmod +x katoolin.py
-sudo ./katoolin.py
-# Tools installed using katooling:
-# | - nmap 
-# | - enum4linux 
-# | - dotdotpwn
-# | - exploitdb 
-# | - amap 
-# | - sfuzz 
-# | - aircrack-ng 
-# | - kismet 
-# | - dirbuster 
-# | - mitmproxy 
-# | - sslstrip 
-# | - john-the-ripper 
-# | - hash-identifier
-# | - wordlists 
+# # Kali <- ALERT: this steps break ubuntu for some reason
+# sudo git clone https://github.com/LionSec/katoolin.git /opt/katoolin/
+# sudo chown -R $USER:$USER /opt/katoolin
+# cd /opt/katoolin
+# sudo chmod +x katoolin.py
+# sudo ./katoolin.py
+# # Tools installed using katooling:
+# # | - nmap 
+# # | - enum4linux 
+# # | - dotdotpwn
+# # | - exploitdb 
+# # | - amap 
+# # | - sfuzz 
+# # | - aircrack-ng 
+# # | - kismet 
+# # | - dirbuster 
+# # | - mitmproxy 
+# # | - sslstrip 
+# # | - john-the-ripper 
+# # | - hash-identifier
+# # | - wordlists 
 
 # THC-hydra
 https://www.thc.org/thc-hydra/
