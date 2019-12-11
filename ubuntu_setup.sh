@@ -21,6 +21,7 @@ apt-get install -y \
     zsh \
     vim \
     autotools-dev \
+    speedcrunch \
     automake \
     && rm -rf /var/lib/apt/lists/*
 
@@ -323,4 +324,7 @@ sudo apt-get install scrot
 #
 #sudo -u vagrant ln -s /vagrant/src/.emacs.d/ /home/vagrant/
 #sudo -u vagrant ln -s /vagrant/src/.spacemacs /home/vagrant/
+
+
+
 #echo "----- END -----"
