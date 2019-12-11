@@ -34,10 +34,14 @@ apt-get install -y \
 # rm VBoxGuestAdditions_5.2.6.iso
 # sudo umount /media/VBoxGuestAdditions
 # sudo rm -rf /media/VBoxGuestAdditions
+    
+# get dotfiles
+sudo git clone https://github.com/rayenok/dotfiles.git /opt/dotfiles
+sudo chown -R r13:r13 /opt/dotfiles
 
 # zsh
-cp -r /mnt/dropbox/dotfiles/.oh-my-zsh ~/
-cp -r /mnt/dropbox/dotfiles/.zshrc ~/
+cp -r /opt/dotfiles/.oh-my-zsh ~/
+cp -r /opt/dotfiles/.zshrc ~/
 echo "zsh" >> ~/.bashrc
 
 # Install emacs26
@@ -52,10 +56,14 @@ sudo ./configure
 sudo make
 sudo make install 
 sudo chown -R $USER:$USER /opt/emacs-25.1
-# Mount dropbox to /mnt/dropbox
-ln -s /mnt/dropbox/spacemacs/src/.spacemacs ~/.spacemacs
-ln -s /mnt/dropbox/spacemacs/src/.emacs.d/ ~/.emacs.d
-ln -s /mnt/dropbox/spacemacs/docker/src/.org-capture-templates.el /home/$USER/.org-capture-templates.el
+
+# get spacemacs from my repo
+sudo git clone https://github.com/rayenok/spacemacs.git /opt/spacemacs
+sudo chown -R r13:r13 /opt/spacemacs
+ln -s /opt/spacemacs/ ~/.spacemacs
+
+#FIXME: Next line has to be updated
+ln -s /opt/spacemacs/docker/src/.org-capture-templates.el /home/$USER/.org-capture-templates.el
 
 #Install monaco font
 mkdir ~/.fonts
