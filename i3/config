@@ -43,7 +43,12 @@ bindsym XF86MonBrightnessDown exec xbacklight - 10
 bindsym $mod+Shift+C kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
+# bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec rofi -show drun -Theme arthur
+bindsym $mod+Shift+p exec rofi -show run -Theme arthur
+
+# rofi task-switcher
+bindsym $mod+Tab exec rofi -Theme arthur -show
 
 # change focus
 bindsym $mod+h focus left
