@@ -43,6 +43,15 @@ bindsym XF86MonBrightnessDown exec xbacklight - 10
 # Set workspace name <- assign a free key map
 # bindsym $mod+n exec i3-input -F 'rename workspace to %s' -P 'New name: '
 
+# read 1 character and mark the current window with this character
+# bindsym $mod+f exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+bindsym $mod+Shift+space exec i3-rofi-mark mark
+# i3-rofi-mark [-h] [--debug] [--prefsudo apt-get install zenity rofi python3ix PREFIX] {mark,goto,unmark}
+
+# read 1 character and go to the window with the character
+# bindsym $mod+x exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+bindsym $mod+space exec i3-rofi-mark goto
+
 # kill focused window
 bindsym $mod+Shift+C kill
 
@@ -226,6 +235,13 @@ for_window [instance="^nautilus"] move scratchpad
 # bindsym $mod+less [instance="^Emacs_scratchpad$"] scratchpad show
 # for_window [class="^.*"] border pixel 1
 # }
+
+
+# read 1 character and mark the current window with this character
+#bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+
+# read 1 character and go to the window with the character
+#bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
