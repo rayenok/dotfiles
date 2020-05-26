@@ -273,15 +273,20 @@ exec xrandr --output Virtual1 --auto --left-of Virtual2
 
 # Applications execution {{{
 
-exec --no-startup-id emacs --daemon=main
-# exec --no-startup-id emacs --daemon=files
-# exec --no-startup-id emacs --daemon=mail
-exec --no-startup-id compton
-exec --no-startup-id nitrogen --restore
+# FIXME: emacsclient window closes automatically due to a bug. Because of this,
+# cannot use emacs-server and emacsclient
+# exec --no-startup-id emacs --daemon=main &
+# exec --no-startup-id emacs --daemon=files &
+# exec --no-startup-id i3-msg 'workspace 1: emacs; exec emacsclient -c main'
+# # exec --no-startup-id emacs --daemon=mail
+
 exec --no-startup-id mount --bind /mnt/dropbox/org/agenda /mnt/agenda
 exec --no-startup-id mount --bind /mnt/dropbox/org/it/security /mnt/security
+exec --no-startup-id compton
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id timedatectl set-timezone Europe/Lisbon
 # exec --no-startup-id systemctl --user enable emacs
 exec --no-startup-id guake 
 exec --no-startup-id i3-msg 'workspace 2: www; exec firefox'
-# exec --no-startup-id i3-msg 'workspace 1: emacs; exec (emacs -name "Emacs_main")&'
+exec --no-startup-id i3-msg 'workspace 1: emacs; exec emacs'
 #
