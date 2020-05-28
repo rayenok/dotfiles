@@ -280,8 +280,10 @@ exec xrandr --output Virtual1 --auto --left-of Virtual2
 # exec --no-startup-id i3-msg 'workspace 1: emacs; exec emacsclient -c main'
 # # exec --no-startup-id emacs --daemon=mail
 
-exec --no-startup-id mount --bind /mnt/dropbox/org/agenda /mnt/agenda
-exec --no-startup-id mount --bind /mnt/dropbox/org/it/security /mnt/security
+# exec --no-startup-id mount --bind /mnt/dropbox/org/agenda /mnt/agenda
+exec --no-startup-id sudo mount --bind /home/enova/org /mnt/dropbox/org
+exec --no-startup-id sudo mount --bind /home/enova/roam /mnt/dropbox/org/roam
+# exec --no-startup-id mount --bind /mnt/dropbox/org/it/security /mnt/security
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id timedatectl set-timezone Europe/Lisbon
