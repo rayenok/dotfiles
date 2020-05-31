@@ -1,0 +1,247 @@
+#+TITLE: Readme
+
+
+$mod = Super
+$meta = Alt
+
+| Shortcut                      | Function                   |
+|-------------------------------+----------------------------|
+| $mod + q                      | workspace q                |
+| $mod + w                      | workspace w                |
+| $mod + e                      | workspace e                |
+| $mod + r                      | rename workspace           |
+| $mod + t                      | tabbed layout              |
+| $mod + y                      | scratchpad                 |
+| $mod + u                      | split vertically           |
+| $mod + i                      | split horitzontaly         |
+| $mod + o                      | fullscreen                 |
+| $mod + p                      | previous workspace         |
+| $mod + a                      | workspace a                |
+| $mod + s                      | workspace s                |
+| $mod + d                      | workspace d                |
+| $mod + f                      | toggle floating            |
+| $mod + g                      | focus parent               |
+| $mod + h                      | focus left                 |
+| $mod + j                      | focus down                 |
+| $mod + k                      | focus up                   |
+| $mod + l                      | focus right                |
+| $mod + z                      | workspace z                |
+| $mod + x                      | workspace x                |
+| $mod + c                      | workspace c                |
+| $mod + v                      | volume mode                |
+| $mod + b                      | stacked/default layout     |
+| $mod + n                      | next workspace             |
+| $mod + m                      | resize mode                |
+| $mod + 1                      | workspace 1                |
+| $mod + 2                      | workspace 2                |
+| $mod + 3                      | workspace 3                |
+| $mod + 4                      |                            |
+| $mod + 5                      |                            |
+| $mod + 6                      |                            |
+| $mod + 7                      |                            |
+| $mod + 8                      |                            |
+| $mod + 9                      |                            |
+| $mod + 0                      | kill                       |
+| $mod + Return                 | workspace back and forth   |
+| $mod + Space                  | rofi drun                  |
+| $mod + Tab                    | rofi show                  |
+|-------------------------------+----------------------------|
+| $mod + Shift + q              | move to workspace q        |
+| $mod + Shift + w              | move to workspace w        |
+| $mod + Shift + e              | move to workspace e        |
+| $mod + Shift + r              |                            |
+| $mod + Shift + t              |                            |
+| $mod + Shift + y              | move to scratchpad         |
+| $mod + Shift + u              | restart i3                 |
+| $mod + Shift + i              | reload i3 config           |
+| $mod + Shift + o              | decrease volume            |
+| $mod + Shift + p              |                            |
+| $mod + Shift + a              | move to workspace a        |
+| $mod + Shift + s              | move to workspace s        |
+| $mod + Shift + d              | move to workspace d        |
+| $mod + Shift + f              |                            |
+| $mod + Shift + g              | focus child                |
+| $mod + Shift + h              | move left                  |
+| $mod + Shift + j              | move down                  |
+| $mod + Shift + k              | move up                    |
+| $mod + Shift + l              | move right                 |
+| $mod + Shift + z              | move to workspace z        |
+| $mod + Shift + x              | move to workspace x        |
+| $mod + Shift + c              | move to workspace c        |
+| $mod + Shift + v              |                            |
+| $mod + Shift + b              | lock session               |
+| $mod + Shift + n              |                            |
+| $mod + Shift + m              | mute                       |
+| $mod + Shift + 1              | move to workspace 1        |
+| $mod + Shift + 2              | move to workspace 2        |
+| $mod + Shift + 3              | move to workspace 3        |
+| $mod + Shift + 4              |                            |
+| $mod + Shift + 5              |                            |
+| $mod + Shift + 6              |                            |
+| $mod + Shift + 7              |                            |
+| $mod + Shift + 8              |                            |
+| $mod + Shift + 9              |                            |
+| $mod + Shift + 0              | exit                       |
+| $mod + Shift + Return         | sticky                     |
+| $mod + Shift + Space          | rofi run                   |
+| $mod + Shift + Tab            |                            |
+|-------------------------------+----------------------------|
+| $mod + $meta + q              |                            |
+| $mod + $meta + w              |                            |
+| $mod + $meta + e              |                            |
+| $mod + $meta + r              |                            |
+| $mod + $meta + t              |                            |
+| $mod + $meta + y              |                            |
+| $mod + $meta + u              |                            |
+| $mod + $meta + i              |                            |
+| $mod + $meta + o              |                            |
+| $mod + $meta + p              |                            |
+| $mod + $meta + a              |                            |
+| $mod + $meta + s              |                            |
+| $mod + $meta + d              |                            |
+| $mod + $meta + f              |                            |
+| $mod + $meta + g              |                            |
+| $mod + $meta + h              |                            |
+| $mod + $meta + j              |                            |
+| $mod + $meta + k              |                            |
+| $mod + $meta + l              |                            |
+| $mod + $meta + z              |                            |
+| $mod + $meta + x              |                            |
+| $mod + $meta + c              |                            |
+| $mod + $meta + v              |                            |
+| $mod + $meta + b              |                            |
+| $mod + $meta + n              |                            |
+| $mod + $meta + m              |                            |
+| $mod + $meta + 1              |                            |
+| $mod + $meta + 2              |                            |
+| $mod + $meta + 3              |                            |
+| $mod + $meta + 4              |                            |
+| $mod + $meta + 5              |                            |
+| $mod + $meta + 6              |                            |
+| $mod + $meta + 7              |                            |
+| $mod + $meta + 8              |                            |
+| $mod + $meta + 9              |                            |
+| $mod + $meta + 0              |                            |
+| $mod + $meta + Return         |                            |
+| $mod + $meta + Space          |                            |
+| $mod + $meta + Tab            |                            |
+|-------------------------------+----------------------------|
+| $mod + Ctrl + q               |                            |
+| $mod + Ctrl + w               |                            |
+| $mod + Ctrl + e               |                            |
+| $mod + Ctrl + r               |                            |
+| $mod + Ctrl + t               |                            |
+| $mod + Ctrl + y               |                            |
+| $mod + Ctrl + u               |                            |
+| $mod + Ctrl + i               |                            |
+| $mod + Ctrl + o               |                            |
+| $mod + Ctrl + p               |                            |
+| $mod + Ctrl + a               |                            |
+| $mod + Ctrl + s               |                            |
+| $mod + Ctrl + d               |                            |
+| $mod + Ctrl + f               |                            |
+| $mod + Ctrl + g               |                            |
+| $mod + Ctrl + h               |                            |
+| $mod + Ctrl + j               |                            |
+| $mod + Ctrl + k               |                            |
+| $mod + Ctrl + l               |                            |
+| $mod + Ctrl + z               |                            |
+| $mod + Ctrl + x               |                            |
+| $mod + Ctrl + c               |                            |
+| $mod + Ctrl + v               |                            |
+| $mod + Ctrl + b               |                            |
+| $mod + Ctrl + n               |                            |
+| $mod + Ctrl + m               |                            |
+| $mod + Ctrl + 1               |                            |
+| $mod + Ctrl + 2               |                            |
+| $mod + Ctrl + 3               |                            |
+| $mod + Ctrl + 4               |                            |
+| $mod + Ctrl + 5               |                            |
+| $mod + Ctrl + 6               |                            |
+| $mod + Ctrl + 7               |                            |
+| $mod + Ctrl + 8               |                            |
+| $mod + Ctrl + 9               |                            |
+| $mod + Ctrl + 0               |                            |
+| $mod + Ctrl + Return          |                            |
+| $mod + Ctrl + Space           |                            |
+| $mod + Ctrl + Tab             |                            |
+|-------------------------------+----------------------------|
+| $meta + Ctrl + q              |                            |
+| $meta + Ctrl + w              |                            |
+| $meta + Ctrl + e              |                            |
+| $meta + Ctrl + r              |                            |
+| $meta + Ctrl + t              |                            |
+| $meta + Ctrl + y              |                            |
+| $meta + Ctrl + u              |                            |
+| $meta + Ctrl + i              |                            |
+| $meta + Ctrl + o              |                            |
+| $meta + Ctrl + p              |                            |
+| $meta + Ctrl + a              |                            |
+| $meta + Ctrl + s              |                            |
+| $meta + Ctrl + d              |                            |
+| $meta + Ctrl + f              |                            |
+| $meta + Ctrl + g              |                            |
+| $meta + Ctrl + h              | move container to screen 1 |
+| $meta + Ctrl + j              |                            |
+| $meta + Ctrl + k              |                            |
+| $meta + Ctrl + l              | move container to screen 2 |
+| $meta + Ctrl + z              |                            |
+| $meta + Ctrl + x              |                            |
+| $meta + Ctrl + c              |                            |
+| $meta + Ctrl + v              |                            |
+| $meta + Ctrl + b              |                            |
+| $meta + Ctrl + n              |                            |
+| $meta + Ctrl + m              |                            |
+| $meta + Ctrl + 1              |                            |
+| $meta + Ctrl + 2              |                            |
+| $meta + Ctrl + 3              |                            |
+| $meta + Ctrl + 4              |                            |
+| $meta + Ctrl + 5              |                            |
+| $meta + Ctrl + 6              |                            |
+| $meta + Ctrl + 7              |                            |
+| $meta + Ctrl + 8              |                            |
+| $meta + Ctrl + 9              |                            |
+| $meta + Ctrl + 0              |                            |
+| $meta + Ctrl + Return         |                            |
+| $meta + Ctrl + Space          |                            |
+| $meta + Ctrl + Tab            |                            |
+|-------------------------------+----------------------------|
+| $meta + Shift + Ctrl + q      |                            |
+| $meta + Shift + Ctrl + w      |                            |
+| $meta + Shift + Ctrl + e      |                            |
+| $meta + Shift + Ctrl + r      |                            |
+| $meta + Shift + Ctrl + t      |                            |
+| $meta + Shift + Ctrl + y      |                            |
+| $meta + Shift + Ctrl + u      |                            |
+| $meta + Shift + Ctrl + i      |                            |
+| $meta + Shift + Ctrl + o      |                            |
+| $meta + Shift + Ctrl + p      |                            |
+| $meta + Shift + Ctrl + a      |                            |
+| $meta + Shift + Ctrl + s      | swap screens               |
+| $meta + Shift + Ctrl + d      |                            |
+| $meta + Shift + Ctrl + f      |                            |
+| $meta + Shift + Ctrl + g      |                            |
+| $meta + Shift + Ctrl + h      | move to screen 1           |
+| $meta + Shift + Ctrl + j      |                            |
+| $meta + Shift + Ctrl + k      |                            |
+| $meta + Shift + Ctrl + l      | move to screen 2           |
+| $meta + Shift + Ctrl + z      |                            |
+| $meta + Shift + Ctrl + x      |                            |
+| $meta + Shift + Ctrl + c      |                            |
+| $meta + Shift + Ctrl + v      |                            |
+| $meta + Shift + Ctrl + b      |                            |
+| $meta + Shift + Ctrl + n      |                            |
+| $meta + Shift + Ctrl + m      |                            |
+| $meta + Shift + Ctrl + 1      |                            |
+| $meta + Shift + Ctrl + 2      |                            |
+| $meta + Shift + Ctrl + 3      |                            |
+| $meta + Shift + Ctrl + 4      |                            |
+| $meta + Shift + Ctrl + 5      |                            |
+| $meta + Shift + Ctrl + 6      |                            |
+| $meta + Shift + Ctrl + 7      |                            |
+| $meta + Shift + Ctrl + 8      |                            |
+| $meta + Shift + Ctrl + 9      |                            |
+| $meta + Shift + Ctrl + 0      |                            |
+| $meta + Shift + Ctrl + Return |                            |
+| $meta + Shift + Ctrl + Space  |                            |
+| $meta + Shift + Ctrl + Tab    |                            |
