@@ -114,8 +114,8 @@ bindsym $mod+t layout tabbed
 bindsym $mod+b layout default
 
 # focus the parent container
-bindsym $mod+g focus parent;exec notify-send 'focus parent'
-bindsym $mod+Shift+g focus child;exec notify-send 'focus child'
+# bindsym $mod+g focus parent;exec notify-send 'focus parent'
+# bindsym $mod+Shift+g focus child;exec notify-send 'focus child'
 
 # Toggle sticky state of a window (a floating window that appears in all workspaces)
 bindsym $mod+Shift+Return sticky toggle

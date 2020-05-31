@@ -20,7 +20,7 @@ $meta = Alt
 | $mod + s                      | workspace s                |
 | $mod + d                      | workspace d                |
 | $mod + f                      | toggle floating            |
-| $mod + g                      | focus parent               |
+| $mod + g                      |                            |
 | $mod + h                      | focus left                 |
 | $mod + j                      | focus down                 |
 | $mod + k                      | focus up                   |
@@ -60,7 +60,7 @@ $meta = Alt
 | $mod + Shift + s              | move to workspace s        |
 | $mod + Shift + d              | move to workspace d        |
 | $mod + Shift + f              |                            |
-| $mod + Shift + g              | focus child                |
+| $mod + Shift + g              |                            |
 | $mod + Shift + h              | move left                  |
 | $mod + Shift + j              | move down                  |
 | $mod + Shift + k              | move up                    |
