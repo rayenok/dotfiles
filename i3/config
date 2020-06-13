@@ -2,7 +2,7 @@
 # Mod4 = Super
 
 
-exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
+# exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
 
 # Basic options {{{
 set $mod Mod4
