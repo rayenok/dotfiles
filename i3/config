@@ -29,9 +29,10 @@ exec (~/.dropbox-dist/dropboxd)&
 # bindsym $mod+Return exec i3-sensible-terminal
 
 # Volume shortcuts
-bindsym $mod+Shift+p exec amixer -q set Master 5%+
-bindsym $mod+Shift+o exec amixer -q set Master 5%-
-bindsym $mod+Shift+m exec pactl set-sink-mute 0 toggle
+bindsym $mod+Shift+p exec amixer -c 3 -q set PCM 5%+
+bindsym $mod+Shift+o exec amixer -c 3 -q set PCM 5%-
+# FIXME: Mute toggle not working
+bindsym $mod+Shift+M exec pactl set-sink-mute 0 toggle
 
 # Brightness <- not tested
 bindsym XF86MonBrightnessUp exec xbacklight + 10
