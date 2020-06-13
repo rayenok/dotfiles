@@ -171,40 +171,20 @@ bindsym $mod+x workspace number $ws_11
 bindsym $mod+c workspace number $ws_12
 bindsym $mod+y scratchpad show
 
-# assign workspace to output
-workspace $ws_1 output $primary_screen
-workspace $ws_2 output $primary_screen
-workspace $ws_3 output $primary_screen
-workspace $ws_4 output $primary_screen
-workspace $ws_5 output $primary_screen
-workspace $ws_6 output $primary_screen
-
-workspace $ws_7 output $secondary_screen
-workspace $ws_8 output $secondary_screen
-workspace $ws_9 output $secondary_screen
-workspace $ws_10 output $secondary_screen
-workspace $ws_11 output $secondary_screen
-workspace $ws_12 output $secondary_screen
-
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws_1
-bindsym $mod+Shift+2 move container to workspace $ws_2
-bindsym $mod+Shift+3 move container to workspace $ws_3
-bindsym $mod+Shift+q move container to workspace $ws_4
-bindsym $mod+Shift+w move container to workspace $ws_5
-bindsym $mod+Shift+e move container to workspace $ws_6
-bindsym $mod+Shift+a move container to workspace $ws_7
-bindsym $mod+Shift+s move container to workspace $ws_8
-bindsym $mod+Shift+d move container to workspace $ws_9
-bindsym $mod+Shift+z move container to workspace $ws_10
-bindsym $mod+Shift+x move container to workspace $ws_11
-bindsym $mod+Shift+c move container to workspace $ws_12
+bindsym $mod+Shift+1 move container to workspace number $ws_1
+bindsym $mod+Shift+2 move container to workspace number $ws_2
+bindsym $mod+Shift+3 move container to workspace number $ws_3
+bindsym $mod+Shift+q move container to workspace number $ws_4
+bindsym $mod+Shift+w move container to workspace number $ws_5
+bindsym $mod+Shift+e move container to workspace number $ws_6
+bindsym $mod+Shift+a move container to workspace number $ws_7
+bindsym $mod+Shift+s move container to workspace number $ws_8
+bindsym $mod+Shift+d move container to workspace number $ws_9
+bindsym $mod+Shift+z move container to workspace number $ws_10
+bindsym $mod+Shift+x move container to workspace number $ws_11
+bindsym $mod+Shift+c move container to workspace number $ws_12
 bindsym $mod+Shift+y move scratchpad
-
-# move workspace to another screen
-bindsym $meta+Control+Shift+h move workspace to output $primary_screen
-bindsym $meta+Control+Shift+l move workspace to output $secondary_screen
-bindsym $meta+Control+Shift+s exec ~/.i3/i3-display-swap.sh
 
 # disable window titles
 new_window pixel 4
@@ -213,11 +193,6 @@ new_window pixel 4
 # client focused
 # client.focused #00ff00 #00ff00 #00ff00 #00ff00 #00ff00
 client.focused #4bccf2 #4bccf2 #4bccf2 #4bccf2 #4bccf2
-
-# move scratchpad
-bindsym $meta+Control+h move container to output $primary_screen
-bindsym $meta+Control+l move container to output $secondary_screen
-bindsym $meta+Control+s exec ~/.i3/i3-display-swap.sh
 
 # like $mod+y but undoing all the changes
 bindsym $mod+Control+u floating toggle; move scratchpad
@@ -286,13 +261,45 @@ bar {
 # exec --no-startup-id i3-msg 'workspace 1: emacs; exec emacsclient -c main'
 # # exec --no-startup-id emacs --daemon=mail
 
+# screen configuration
+set $primary_screen HDMI-0
+set $secondary_screen DP-2
+#exec xrandr --output $primary_screen --primary
+#exec xrandr --output $secondary_screen --auto --left-of $primary_screen
+
+# assign workspace to output
+workspace $ws_1 output $primary_screen
+workspace $ws_2 output $primary_screen
+workspace $ws_3 output $primary_screen
+workspace $ws_4 output $primary_screen
+workspace $ws_5 output $primary_screen
+workspace $ws_6 output $primary_screen
+
+workspace $ws_7 output $secondary_screen
+workspace $ws_8 output $secondary_screen
+workspace $ws_9 output $secondary_screen
+workspace $ws_10 output $secondary_screen
+workspace $ws_11 output $secondary_screen
+workspace $ws_12 output $secondary_screen
+
+# move workspace to another screen
+bindsym $meta+Control+Shift+h move workspace to output $primary_screen
+bindsym $meta+Control+Shift+l move workspace to output $secondary_screen
+# bindsym $meta+Control+Shift+s exec ~/.i3/i3-display-swap.sh
+
+# move scratchpad
+bindsym $meta+Control+h move container to output $primary_screen
+bindsym $meta+Control+l move container to output $secondary_screen
+# bindsym $meta+Control+s exec ~/.i3/i3-display-swap.sh
+
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id timedatectl set-timezone Europe/Lisbon
+exec --no-startup-id timedatectl set-timezone Europe/Madrid
 # exec --no-startup-id systemctl --user enable emacs
 exec --no-startup-id guake 
 exec --no-startup-id i3-msg 'workspace $ws_7; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws_4; exec emacs'
 exec --no-startup-id mount --bind /mnt/dropbox/org/agenda /mnt/agenda
+exec --no-startup-id mount --bind /home/rayenok/Dropbox/org /mnt/dropbox/org
 exec --no-startup-id mount --bind /mnt/dropbox/org/it/security /mnt/security
 #

@@ -45,6 +45,7 @@ $meta = Alt
 | $mod + Return                 | workspace back and forth   |
 | $mod + Space                  | rofi drun                  |
 | $mod + Tab                    | rofi show                  |
+| $mod + less                   | floatging toggle           |
 |-------------------------------+----------------------------|
 | $mod + Shift + q              | move to workspace q        |
 | $mod + Shift + w              | move to workspace w        |
