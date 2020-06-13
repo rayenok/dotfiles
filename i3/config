@@ -124,14 +124,20 @@ bindsym $mod+Shift+Return sticky toggle
 # Rename workspace with i3-input using numbers and text
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
-# floating toggle
-bindsym $mod+f floating toggle
 
-# screen configuration
-set $primary_screen Virtual1
-set $secondary_screen Virtual2
-exec xrandr --output $secondary_screen --primary
-exec xrandr --output $primary_screen --auto --left-of $secondary_screen
+# Mouse shortcuts
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
+
+# The right button toggles floating
+bindsym $mod+less floating toggle
+
+# The side buttons move the window around
+bindsym button9 move left
+bindsym button8 move right
 
 # lock session
 bindsym $mod+Shift+b exec i3-msg workspace guest && i3lock -c 111111 -d
