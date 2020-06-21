@@ -272,19 +272,20 @@ set $secondary_screen DP-2
 #exec xrandr --output $secondary_screen --auto --left-of $primary_screen
 
 # assign workspace to output
-workspace $ws_1 output $primary_screen
-workspace $ws_2 output $primary_screen
-workspace $ws_3 output $primary_screen
-workspace $ws_4 output $primary_screen
-workspace $ws_5 output $primary_screen
-workspace $ws_6 output $primary_screen
+# workspace $ws_1 output $primary_screen
+# workspace $ws_2 output $primary_screen
+# workspace $ws_3 output $primary_screen
+# workspace $ws_4 output $primary_screen
+# workspace $ws_5 output $primary_screen
+# workspace $ws_6 output $primary_screen
 
-workspace $ws_7 output $secondary_screen
-workspace $ws_8 output $secondary_screen
-workspace $ws_9 output $secondary_screen
-workspace $ws_10 output $secondary_screen
-workspace $ws_11 output $secondary_screen
-workspace $ws_12 output $secondary_screen
+# workspace $ws_7 output $secondary_screen
+# workspace $ws_8 output $secondary_screen
+# workspace $ws_9 output $secondary_screen
+# workspace $ws_10 output $secondary_screen
+# workspace $ws_11 output $secondary_screen
+# workspace $ws_12 output $secondary_screen
+
 
 # move workspace to another screen
 bindsym $meta+Control+Shift+h move workspace to output $primary_screen
