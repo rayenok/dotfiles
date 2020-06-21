@@ -286,6 +286,24 @@ set $secondary_screen DP-2
 # workspace $ws_11 output $secondary_screen
 # workspace $ws_12 output $secondary_screen
 
+bindsym $mod+Right fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 54
+bindsym $mod+Left fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 0 54
+bindsym $mod+Down+Left fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 1200
+bindsym $mod+Down+Right fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 1200
+
+# resize window (you can also use the mouse for that)
+mode "sticky small window" {
+
+        bindsym $mod+u fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 0 54
+        bindsym $mod+j fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 0 950
+        bindsym $mod+i fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 1890 54
+        bindsym $mod+k fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 1890 950
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod + f mode "sticky small window"
 
 # move workspace to another screen
 bindsym $meta+Control+Shift+h move workspace to output $secondary_screen
