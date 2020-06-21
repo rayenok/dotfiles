@@ -288,13 +288,13 @@ set $secondary_screen DP-2
 
 
 # move workspace to another screen
-bindsym $meta+Control+Shift+h move workspace to output $primary_screen
-bindsym $meta+Control+Shift+l move workspace to output $secondary_screen
+bindsym $meta+Control+Shift+h move workspace to output $secondary_screen
+bindsym $meta+Control+Shift+l move workspace to output $primary_screen
 # bindsym $meta+Control+Shift+s exec ~/.i3/i3-display-swap.sh
 
 # move scratchpad
-bindsym $meta+Control+h move container to output $primary_screen
-bindsym $meta+Control+l move container to output $secondary_screen
+bindsym $meta+Control+h move container to output $secondary_screen
+bindsym $meta+Control+l move container to output $primary_screen
 # bindsym $meta+Control+s exec ~/.i3/i3-display-swap.sh
 
 exec --no-startup-id compton
