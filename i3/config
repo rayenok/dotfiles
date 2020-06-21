@@ -320,9 +320,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id timedatectl set-timezone Europe/Madrid
 # exec --no-startup-id systemctl --user enable emacs
 exec --no-startup-id guake 
-exec --no-startup-id i3-msg 'workspace $ws_7; exec firefox'
-exec --no-startup-id i3-msg 'workspace $ws_4; exec emacs'
-exec --no-startup-id mount --bind /mnt/dropbox/org/agenda /mnt/agenda
-exec --no-startup-id mount --bind /home/rayenok/Dropbox/org /mnt/dropbox/org
-exec --no-startup-id mount --bind /mnt/dropbox/org/it/security /mnt/security
+exec --no-startup-id i3-msg 'workspace $ws_2; exec firefox'
+exec --no-startup-id i3-msg 'workspace $ws_1; exec emacs'
+exec --no-startup-id bash ~/.i3/platform-especific-config.sh
 #
