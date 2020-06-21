@@ -100,23 +100,23 @@ bindsym $mod+Shift+L move right
 # bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+i split h
+bindsym $mod+7 split h
 
 # split in vertical orientation
-bindsym $mod+u split v
+bindsym $mod+8 split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+o fullscreen
 
 # change container layout (stacked, tabbed, default)
-# bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-# bindsym $mod+n layout stacked
+bindsym $mod+u layout stacking
+bindsym $mod+i layout tabbed
 bindsym $mod+b layout default
 
 # focus the parent container
 # bindsym $mod+g focus parent;exec notify-send 'focus parent'
-# bindsym $mod+Shift+g focus child;exec notify-send 'focus child'
+bindsym $mod+Shift+7 focus child
+bindsym $mod+Shift+8 focus parent
 
 # Toggle sticky state of a window (a floating window that appears in all workspaces)
 bindsym $mod+Shift+Return sticky toggle
@@ -206,6 +206,10 @@ bindsym $mod+Shift+i reload
 bindsym $mod+Shift+u restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+0 exit
+
+
+# reset whole workspace (have to click on the window/screen)
+bindsym $mod+$meta+Shift+k focus parent, xkill
 
 
 # resize window (you can also use the mouse for that)
