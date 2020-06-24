@@ -2,7 +2,7 @@
 # Mod4 = Super
 
 
-# exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
+exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
 
 # Basic options {{{
 set $mod Mod4
@@ -49,14 +49,6 @@ bindsym XF86MonBrightnessDown exec xbacklight - 10
 # read 1 character and go to the window with the character
 # bindsym $mod+x exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 # bindsym $mod+space exec i3-rofi-mark goto
-
-# mouse shortcuts
-# The middle button over a titlebar kills the window
-bindsym --release button2 kill
-# The right button toggles floating
-bindsym button3 floating toggle
-# The mod+right button toggles sticky
-bindsym $mod+button3 sticky toggle
 
 # kill focused window
 bindsym $mod+0 kill
@@ -124,13 +116,18 @@ bindsym $mod+Shift+Return sticky toggle
 # Rename workspace with i3-input using numbers and text
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
-
 # Mouse shortcuts
 # The middle button over a titlebar kills the window
 bindsym --release button2 kill
 
 # The middle button and a modifer over any part of the window kills the window
 bindsym --whole-window $mod+button2 kill
+
+# The left button and a modifer over any part of the window puts in the
+# scratchpad or hides it if it is already in one
+bindsym --whole-window $mod+button1 scratchpad show
+
+
 
 # The right button toggles floating
 bindsym $mod+less floating toggle
@@ -152,9 +149,9 @@ set $ws_6 "6:[E]"
 set $ws_7 "7:[A]"
 set $ws_8 "8:[S]"
 set $ws_9 "9:[D]"
-set $ws_10 "10:[Z]"
-set $ws_11 "11:[X]"
-set $ws_12 "12:[C]"
+# set $ws_10 "10:[Z]"
+# set $ws_11 "11:[X]"
+# set $ws_12 "12:[C]"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws_1
@@ -163,12 +160,12 @@ bindsym $mod+3 workspace number $ws_3
 bindsym $mod+q workspace number $ws_4
 bindsym $mod+w workspace number $ws_5
 bindsym $mod+e workspace number $ws_6
-bindsym $mod+a workspace number $ws_7
-bindsym $mod+s workspace number $ws_8
-bindsym $mod+d workspace number $ws_9
-bindsym $mod+z workspace number $ws_10
-bindsym $mod+x workspace number $ws_11
-bindsym $mod+c workspace number $ws_12
+# bindsym $mod+a workspace number $ws_7
+# bindsym $mod+s workspace number $ws_8
+# bindsym $mod+d workspace number $ws_9
+# bindsym $mod+z workspace number $ws_10
+# bindsym $mod+x workspace number $ws_11
+# bindsym $mod+c workspace number $ws_12
 bindsym $mod+y scratchpad show
 
 # move focused container to workspace
@@ -178,13 +175,32 @@ bindsym $mod+Shift+3 move container to workspace number $ws_3
 bindsym $mod+Shift+q move container to workspace number $ws_4
 bindsym $mod+Shift+w move container to workspace number $ws_5
 bindsym $mod+Shift+e move container to workspace number $ws_6
-bindsym $mod+Shift+a move container to workspace number $ws_7
-bindsym $mod+Shift+s move container to workspace number $ws_8
-bindsym $mod+Shift+d move container to workspace number $ws_9
-bindsym $mod+Shift+z move container to workspace number $ws_10
-bindsym $mod+Shift+x move container to workspace number $ws_11
-bindsym $mod+Shift+c move container to workspace number $ws_12
+# bindsym $mod+Shift+a move container to workspace number $ws_7
+# bindsym $mod+Shift+s move container to workspace number $ws_8
+# bindsym $mod+Shift+d move container to workspace number $ws_9
+# bindsym $mod+Shift+z move container to workspace number $ws_10
+# bindsym $mod+Shift+x move container to workspace number $ws_11
+# bindsym $mod+Shift+c move container to workspace number $ws_12
 bindsym $mod+Shift+y move scratchpad
+
+# Scratchpad quick containers
+bindsym $mod+a [con_mark="files"] scratchpad show
+for_window [title="files"] mark "files", move scratchpad
+
+bindsym $mod+s [con_mark="scratchpad"] scratchpad show
+for_window [title="scratchpad"] mark "scratchpad", move scratchpad
+
+bindsym $mod+d [con_mark="music"] scratchpad show
+for_window [class="Spotify"] mark "music", move scratchpad
+
+
+# Scratchpad quick containers
+bindsym $mod+z [con_mark="alpha"] scratchpad show
+bindsym $mod+Shift+z mark "alpha", move scratchpad
+bindsym $mod+x [con_mark="beta"] scratchpad show
+bindsym $mod+Shift+x mark "beta", move scratchpad
+bindsym $mod+c [con_mark="gamma"] scratchpad show
+bindsym $mod+Shift+c mark "gamma", move scratchpad
 
 # disable window titles
 new_window pixel 4
@@ -286,10 +302,10 @@ set $secondary_screen DP-2
 # workspace $ws_11 output $secondary_screen
 # workspace $ws_12 output $secondary_screen
 
-bindsym $mod+Right fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 54
-bindsym $mod+Left fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 0 54
-bindsym $mod+Down+Left fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 1200
-bindsym $mod+Down+Right fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 1200
+# bindsym $mod+Right fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 54
+# bindsym $mod+Left fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 0 54
+# bindsym $mod+Down+Left fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 1200
+# bindsym $mod+Down+Right fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 1200
 
 # resize window (you can also use the mouse for that)
 mode "sticky small window" {
@@ -303,7 +319,7 @@ mode "sticky small window" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod + f mode "sticky small window"
+bindsym $mod+f mode "sticky small window"
 
 # move workspace to another screen
 bindsym $meta+Control+Shift+h move workspace to output $secondary_screen
@@ -313,7 +329,7 @@ bindsym $meta+Control+Shift+l move workspace to output $primary_screen
 # move scratchpad
 bindsym $meta+Control+h move container to output $secondary_screen
 bindsym $meta+Control+l move container to output $primary_screen
-# bindsym $meta+Control+s exec ~/.i3/i3-display-swap.sh
+bindsym $meta+Control+o exec ~/.i3/i3-display-swap.sh
 
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
@@ -322,5 +338,8 @@ exec --no-startup-id timedatectl set-timezone Europe/Madrid
 exec --no-startup-id guake 
 exec --no-startup-id i3-msg 'workspace $ws_2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws_1; exec emacs'
+exec --no-startup-id emacs --title files --eval "(deer)"
+exec --no-startup-id emacs --title scratchpad --eval "(doom/switch-to-scratch-buffer)"
+# exec --no-startup-id spotify
 exec --no-startup-id bash ~/.i3/platform-especific-config.sh
 #
