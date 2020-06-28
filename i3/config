@@ -222,8 +222,8 @@ new_window pixel 4
 # client.focused #00ff00 #00ff00 #00ff00 #00ff00 #00ff00
 client.focused #4bccf2 #4bccf2 #4bccf2 #4bccf2 #4bccf2
 
-# like $mod+y but undoing all the changes
-bindsym $mod+Control+u floating toggle; move scratchpad
+# Move to scratchpad
+bindsym $mod+Control+u floating disable; move scratchpad
 
 # bindsym $mod+Shift+h move container to output Virtual1; focus output left; focus floating
 # bindsym $mod+Shift+l move container to output Virtual2; focus output right; focus floating
