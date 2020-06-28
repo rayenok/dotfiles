@@ -340,7 +340,7 @@ bindsym $meta+$mod+Shift+l move workspace to output $primary_screen
 
 # move scratchpad
 bindsym $meta+$mod+h move container to output $secondary_screen; focus output left
-bindsym $meta+$mod+l move container to output $primary_screen; focus output right
+bindsym $meta+$mod+l move container to output $primary_screen; focus output righ
 bindsym $meta+$mod+o exec ~/.i3/i3-display-swap.sh
 
 exec --no-startup-id compton
