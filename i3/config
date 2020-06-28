@@ -349,9 +349,10 @@ exec --no-startup-id timedatectl set-timezone Europe/Madrid
 # exec --no-startup-id systemctl --user enable emacs
 exec --no-startup-id guake 
 exec --no-startup-id i3-msg 'workspace $ws_2; exec firefox'
+# FIXME
 exec --no-startup-id i3-msg 'workspace $ws_1; exec emacs'
-exec --no-startup-id emacs --title files --eval "(deer)"
-exec --no-startup-id emacs --title scratchpad --eval "(doom/switch-to-scratch-buffer)"
+# exec --no-startup-id emacs --title files --eval "(deer)"
+# exec --no-startup-id emacs --title scratchpad --eval "(doom/switch-to-scratch-buffer)"
 # exec --no-startup-id spotify
 exec --no-startup-id bash ~/.i3/platform-especific-config.sh
 #
