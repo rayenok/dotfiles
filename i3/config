@@ -125,7 +125,7 @@ bindsym --whole-window $mod+button2 kill
 
 # The left button and a modifer over any part of the window puts in the
 # scratchpad or hides it if it is already in one
-bindsym --whole-window $mod+button1 scratchpad show
+bindsym --whole-window $mod+button4 scratchpad show
 
 
 
