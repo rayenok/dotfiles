@@ -208,8 +208,9 @@ bindsym $mod+Shift+s mark "beta", move scratchpad
 
 bindsym $mod+d [con_mark="delta"] scratchpad show
 bindsym $mod+Shift+d mark "delta", move scratchpad
-# bindsym $mod+x [con_mark="beta"] scratchpad show
-# bindsym $mod+Shift+x mark "beta", move scratchpad
+
+bindsym $mod+x [con_mark="epsilon"] scratchpad show
+bindsym $mod+Shift+x mark "epsilon", move scratchpad
 
 bindsym $mod+c [con_mark="gamma"] scratchpad show
 bindsym $mod+Shift+c mark "gamma", move scratchpad
