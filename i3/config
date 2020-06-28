@@ -184,21 +184,33 @@ bindsym $mod+Shift+e move container to workspace number $ws_6
 bindsym $mod+Shift+y move scratchpad
 
 # Scratchpad quick containers
-bindsym $mod+a [con_mark="files"] scratchpad show
-for_window [title="files"] mark "files", move scratchpad
+# bindsym $mod+a [con_mark="files"] scratchpad show
+# for_window [title="^files$"] mark "files", move scratchpad
 
-bindsym $mod+s [con_mark="scratchpad"] scratchpad show
-for_window [title="scratchpad"] mark "scratchpad", move scratchpad
+# bindsym $mod+s [con_mark="scratchpad"] scratchpad show
+# for_window [title="scratchpad"] mark "scratchpad", move scratchpad
 
-bindsym $mod+d [con_mark="music"] scratchpad show
-for_window [class="Spotify"] mark "music", move scratchpad
+# bindsym $mod+d [con_mark="music"] scratchpad show
+# for_window [class="Spotify"] mark "music", move scratchpad
 
+for_window [class="(?i)guake"] mark "terminal"
+for_window [con_mark="terminal"] floating disable
+for_window [con_mark="terminal"] move scratchpad
+bindsym $mod+z [con_mark="terminal"] scratchpad show
+# for_window [class="guake"] mark "terminal", floating disable;move scratchpad
 
 # Scratchpad quick containers
-bindsym $mod+z [con_mark="alpha"] scratchpad show
-bindsym $mod+Shift+z mark "alpha", move scratchpad
-bindsym $mod+x [con_mark="beta"] scratchpad show
-bindsym $mod+Shift+x mark "beta", move scratchpad
+bindsym $mod+a [con_mark="alpha"] scratchpad show
+bindsym $mod+Shift+a mark "alpha", move scratchpad
+
+bindsym $mod+s [con_mark="beta"] scratchpad show
+bindsym $mod+Shift+s mark "beta", move scratchpad
+
+bindsym $mod+d [con_mark="delta"] scratchpad show
+bindsym $mod+Shift+d mark "delta", move scratchpad
+# bindsym $mod+x [con_mark="beta"] scratchpad show
+# bindsym $mod+Shift+x mark "beta", move scratchpad
+
 bindsym $mod+c [con_mark="gamma"] scratchpad show
 bindsym $mod+Shift+c mark "gamma", move scratchpad
 
