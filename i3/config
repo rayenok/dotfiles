@@ -29,14 +29,18 @@ exec (~/.dropbox-dist/dropboxd)&
 # bindsym $mod+Return exec i3-sensible-terminal
 
 # Volume shortcuts
-bindsym $mod+Shift+p exec amixer -c 5 -q set PCM 5%+
-bindsym $mod+Shift+o exec amixer -c 5 -q set PCM 5%-
+# bindsym $mod+Shift+p exec amixer -c 5 -q set PCM 5%+
+# bindsym $mod+Shift+o exec amixer -c 5 -q set PCM 5%-
+bindsym $mod+Shift+p exec amixer -c 1 -q set PCM 5%+
+bindsym $mod+Shift+o exec amixer -c 1 -q set PCM 5%-
 # FIXME: Mute toggle not working
 bindsym $mod+Shift+M exec pactl set-sink-mute 0 toggle
 
-# Brightness <- not tested
-bindsym XF86MonBrightnessUp exec xbacklight + 10
-bindsym XF86MonBrightnessDown exec xbacklight - 10
+# Brightness
+# Need to stop asking for the password when executing a command with sudo
+# execute the following: echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$USER
+bindsym XF86MonBrightnessUp exec sudo brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec sudo brightnessctl s 10%-
 
 # Set workspace name <- assign a free key map
 # bindsym $mod+n exec i3-input -F 'rename workspace to %s' -P 'New name: '
