@@ -348,6 +348,7 @@ bindsym $meta+$mod+h move container to output $secondary_screen; focus output le
 bindsym $meta+$mod+l move container to output $primary_screen; focus output right
 bindsym $meta+$mod+o exec ~/.i3/i3-display-swap.sh
 
+exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id timedatectl set-timezone Europe/Madrid
