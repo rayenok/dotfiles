@@ -332,11 +332,11 @@ mode "sticky small window" {
         bindsym $mod+i fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 1890 54
         bindsym $mod+k fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 1890 950
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return sticky enable; mode "default"
+        bindsym Escape sticky disable; mode "default"
 }
 
-bindsym $mod+f mode "sticky small window"
+bindsym $mod+v mode "sticky small window"
 
 # move workspace to another screen
 bindsym $meta+$mod+Shift+h move workspace to output $secondary_screen
