@@ -361,4 +361,5 @@ exec --no-startup-id i3-msg 'workspace $ws_1; exec emacs'
 # exec --no-startup-id emacs --title scratchpad --eval "(doom/switch-to-scratch-buffer)"
 # exec --no-startup-id spotify
 exec --no-startup-id bash ~/.i3/platform-especific-config.sh
+exec --no-startup-id NetworkManager
 #
