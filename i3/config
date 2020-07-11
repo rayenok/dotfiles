@@ -114,6 +114,8 @@ bindsym $mod+b layout default
 bindsym $mod+Shift+7 focus child
 bindsym $mod+Shift+8 focus parent
 
+# Reset network
+bindsym $mod+$meta+n exec service network-manager restart
 # Toggle sticky state of a window (a floating window that appears in all workspaces)
 bindsym $mod+Shift+Return sticky toggle
 
