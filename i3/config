@@ -326,6 +326,7 @@ set $secondary_screen DP-2
 
 # resize window (you can also use the mouse for that)
 mode "sticky small window" {
+        # FIXME: Make this independent of the screen resolution
 
         bindsym $mod+u fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 0 54
         bindsym $mod+j fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 0 950
