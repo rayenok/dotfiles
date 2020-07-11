@@ -28,15 +28,11 @@ exec (~/.dropbox-dist/dropboxd)&
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 
-# Volume shortcuts
-bindsym $mod+Shift+p exec amixer -c 5 -q set PCM 5%+
-bindsym $mod+Shift+o exec amixer -c 5 -q set PCM 5%-
-# FIXME: Mute toggle not working
-bindsym $mod+Shift+M exec pactl set-sink-mute 0 toggle
-
-# Brightness <- not tested
-bindsym XF86MonBrightnessUp exec xbacklight + 10
-bindsym XF86MonBrightnessDown exec xbacklight - 10
+# Brightness
+# Need to stop asking for the password when executing a command with sudo
+# execute the following: echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$USER
+bindsym XF86MonBrightnessUp exec sudo brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec sudo brightnessctl s 10%-
 
 # Set workspace name <- assign a free key map
 # bindsym $mod+n exec i3-input -F 'rename workspace to %s' -P 'New name: '
@@ -110,6 +106,10 @@ bindsym $mod+b layout default
 bindsym $mod+Shift+7 focus child
 bindsym $mod+Shift+8 focus parent
 
+# Change sink device (audio output)
+bindsym $mod+$meta+b exec python3  /opt/dotfiles/i3/rofi_audio_move_source_output.py
+# Reset network
+bindsym $mod+$meta+n exec service network-manager restart
 # Toggle sticky state of a window (a floating window that appears in all workspaces)
 bindsym $mod+Shift+Return sticky toggle
 
@@ -328,11 +328,11 @@ mode "sticky small window" {
         bindsym $mod+i fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 1890 54
         bindsym $mod+k fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 1890 950
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return sticky enable; mode "default"
+        bindsym Escape sticky disable; mode "default"
 }
 
-bindsym $mod+f mode "sticky small window"
+bindsym $mod+v mode "sticky small window"
 
 # move workspace to another screen
 bindsym $meta+$mod+Shift+h move workspace to output $secondary_screen
@@ -344,6 +344,7 @@ bindsym $meta+$mod+h move container to output $secondary_screen; focus output le
 bindsym $meta+$mod+l move container to output $primary_screen; focus output right
 bindsym $meta+$mod+o exec ~/.i3/i3-display-swap.sh
 
+exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id timedatectl set-timezone Europe/Madrid
@@ -356,4 +357,5 @@ exec --no-startup-id i3-msg 'workspace $ws_1; exec emacs'
 # exec --no-startup-id emacs --title scratchpad --eval "(doom/switch-to-scratch-buffer)"
 # exec --no-startup-id spotify
 exec --no-startup-id bash ~/.i3/platform-especific-config.sh
+exec --no-startup-id NetworkManager
 #
