@@ -1,8 +1,11 @@
+# dependencies: rofi, udiskie, oh-my-zsh, rust, brightnessctl, volumeicon-alsa
+
+
 # Mod1 = Alt
 # Mod4 = Super
 
-
-exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
+# FIXME: breaks i3, do not use
+# exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
 
 # Basic options {{{
 set $mod Mod4
@@ -17,9 +20,12 @@ font xft:Inconsolata Medium 9
 floating_modifier $mod
 
 # load .bashrc
-exec (source ~/.zshrc)&
-exec (udiskie --tray)&
-exec (~/.dropbox-dist/dropboxd)&
+exec --no-startup-id (source ~/.zshrc)&
+exec --no-startup-id (udiskie --tray)&
+exec --no-startup-id (~/.dropbox-dist/dropboxd)&
+exec --no-startup-id volumeicon
+# network applet
+exec --no-startup-id nm-applet
 
 # back and forth switching
 # workspace_auto_back_and_forth yes
@@ -130,7 +136,7 @@ bindsym --whole-window $mod+button4 scratchpad show
 
 
 # The right button toggles floating
-bindsym $mod+less floating toggle
+bindsym $mod+z floating toggle
 
 # The side buttons move the window around
 bindsym button9 move left
@@ -196,7 +202,7 @@ bindsym $mod+Shift+y move scratchpad
 for_window [class="(?i)guake"] mark "terminal"
 for_window [con_mark="terminal"] floating disable
 for_window [con_mark="terminal"] move scratchpad
-bindsym $mod+z [con_mark="terminal"] scratchpad show
+bindsym $mod+less [con_mark="terminal"] scratchpad show
 # for_window [class="guake"] mark "terminal", floating disable;move scratchpad
 
 # Scratchpad quick containers
@@ -340,8 +346,8 @@ bindsym $meta+$mod+Shift+l move workspace to output $primary_screen
 # bindsym $meta+Control+Shift+s exec ~/.i3/i3-display-swap.sh
 
 # move scratchpad
-bindsym $meta+$mod+h move container to output $secondary_screen; focus output left
-bindsym $meta+$mod+l move container to output $primary_screen; focus output right
+bindsym $meta+$mod+h move container to output left; focus output left
+bindsym $meta+$mod+l move container to output right; focus output right
 bindsym $meta+$mod+o exec ~/.i3/i3-display-swap.sh
 
 exec --no-startup-id xmodmap $HOME/.Xmodmap
