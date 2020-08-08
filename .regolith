@@ -76,6 +76,8 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 bindsym $mod+Return exec kitty
 
 ## Launch // Terminal for scratchpad // <*><Meta> Enter ##
+bindsym $mod+$meta+Return exec kitty --class "scratch-term"
+
 ## Launch // Browser // <*><Shift> Enter ##
 bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
 
@@ -118,7 +120,7 @@ bindsym $mod+k focus up
 # FIXME: Not working!!
 bindsym $mod+l focus right
 
-## Navigate // Workspaces 1-10 // <*> 0..9 ##
+## Navigate // Workspaces 1-10 // <*> 0..4|q..r ##
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -171,34 +173,31 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 ## Modify // Next Window Orientation // <*> Backspace ##
 bindsym $mod+BackSpace split toggle
 
-## Modify // Window Fullscreen Toggle // <> f ##
+## Modify // Window Fullscreen Toggle // <*> f ##
 # NOTE: Since $mod+o is not working, using $mod+f instead (temporal fix)
 bindsym $mod+f fullscreen toggle
 
-## Modify // Window Floating Toggle // <><Shift> f ##
+## Modify // Window Floating Toggle // <*> z ##
 bindsym $mod+z floating toggle
 
-## Modify // Move to Scratchpad // <><Ctrl> m ##
+## Modify // Move to Scratchpad // <*><Shift> y ##
 bindsym $mod+Shift+y move to scratchpad
 
-## Modify // Tile/Float Focus Toggle // <><Shift> t ##
+## Modify // Tile/Float Focus Toggle // <*><Shift> z ##
 bindsym $mod+Shift+z focus mode_toggle
 
-# ## Modify // Window Layout Mode // <> t ##
+# ## Modify // Window Layout Mode // <*> t ##
 # bindsym $mod+t layout toggle tabbed splith splitv
 
-## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
+## Modify // Move Window to Workspace 1-4|q..t // <*><Shift> 0..4|q..t ##
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+q move container to workspace number $ws5
 bindsym $mod+Shift+w move container to workspace number $ws6
-bindsym $mod+Shift+r move container to workspace number $ws7
-bindsym $mod+Shift+t move container to workspace number $ws8
-# bindsym $mod+Shift+a move container to workspace number $ws9
-# bindsym $mod+Shift+s move container to workspace number $ws11
-# bindsym $mod+Shift+d move container to workspace number $ws12
+bindsym $mod+Shift+e move container to workspace number $ws7
+bindsym $mod+Shift+r move container to workspace number $ws8
 
 # move focused container to workspace, move to workspace
 ## Modify // Carry Window to Workspace 1 - 10// <><Alt> 0..9 ##
@@ -210,12 +209,9 @@ bindsym $mod+$alt+q move container to workspace number $ws5; workspace number $w
 bindsym $mod+$alt+w move container to workspace number $ws6; workspace number $ws6
 bindsym $mod+$alt+e move container to workspace number $ws7; workspace number $ws7
 bindsym $mod+$alt+r move container to workspace number $ws8; workspace number $ws8
-bindsym $mod+$alt+t move container to workspace number $ws9; workspace number $ws9
-# bindsym $mod+$alt+a move container to workspace number $ws10; workspace number $ws10
-# bindsym $mod+$alt+s move container to workspace number $ws11; workspace number $ws11
-# bindsym $mod+$alt+d move container to workspace number $ws12; workspace number $ws12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
+## Modify // Mouse Floating Modifier// <*> ##
 floating_modifier $mod
 
 hide_edge_borders smart
@@ -224,23 +220,23 @@ hide_edge_borders smart
 # Session Management
 ###############################################################################
 
-## Session // Exit App // <*><Shift> q ##
+## Session // Exit App // <*> 0 ##
 bindsym $mod+0 [con_id="__focused__"] kill
 
-## Session // Terminate App // <*><Alt> q ##
+## Session // Terminate App // <*><Ctrl> 0 ##
 bindsym $mod+Ctrl+0 [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
 
-## Session // Reload i3 Config // <*><Shift> c ##
+## Session // Reload i3 Config // <*><Meta> i ##
 bindsym $mod+$meta+i reload
 
-## Session // Refresh Session // <*><Shift> r ##
+## Session // Refresh Session // <*><Shift> i ##
 set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/regolith-look refresh
 bindsym $mod+Shift+i exec --no-startup-id $i3-wm.program.refresh_ui
 
 ## Session // Restart i3 // <*><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
 
-## Session // Logout // <*><Shift> e ##
+## Session // Logout // <*><Shift> 0 ##
 set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout
 bindsym $mod+Shift+0 exec $i3-wm.program.logout
 
@@ -264,7 +260,7 @@ bindsym $mod+Escape exec $i3-wm.program.lock
 # System Management
 ###############################################################################
 
-## Modify // Settings // <*> c ##
+## Modify // Settings // <*> m ##
 set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center
 bindsym $mod+m exec $i3-wm.program.settings
 
@@ -483,22 +479,33 @@ client.focused #4bccf2 #4bccf2 #4bccf2 #4bccf2 #4bccf2
 for_window [class="(?i)scratch-term"] mark "terminal"
 for_window [con_mark="terminal"] floating disable
 for_window [con_mark="terminal"] move scratchpad
+## Scratchpad // Scratchpad Show Terminal // <*> less ##
 bindsym $mod+less [con_mark="terminal"] scratchpad show
 
 # Scratchpad quick containers
+## Scratchpad // Scratchpad Show Alpha // <*> a ##
 bindsym $mod+a [con_mark="alpha"] scratchpad show
+## Scratchpad // Scratchpad Move to Alpha // <*><Shift> a ##
 bindsym $mod+Shift+a mark "alpha", move scratchpad
 
+## Scratchpad // Scratchpad Show Beta // <*> s ##
 bindsym $mod+s [con_mark="beta"] scratchpad show
+## Scratchpad // Scratchpad Move to Beta // <*><Shift> s ##
 bindsym $mod+Shift+s mark "beta", move scratchpad
 
+## Scratchpad // Scratchpad Show Delta // <*> d ##
 bindsym $mod+d [con_mark="delta"] scratchpad show
+## Scratchpad // Scratchpad Move to Delta // <*><Shift> d ##
 bindsym $mod+Shift+d mark "delta", move scratchpad
 
+## Scratchpad // Scratchpad Show Epsilon // <*> x ##
 bindsym $mod+x [con_mark="epsilon"] scratchpad show
+## Scratchpad // Scratchpad Move to Epsilon // <*><Shift> x ##
 bindsym $mod+Shift+x mark "epsilon", move scratchpad
 
+## Scratchpad // Scratchpad Show Gamma // <*> c ##
 bindsym $mod+c [con_mark="gamma"] scratchpad show
+## Scratchpad // Scratchpad Move to Gamma // <*><Shift> c ##
 bindsym $mod+Shift+c mark "gamma", move scratchpad
 
 # resize window (you can also use the mouse for that)
@@ -513,15 +520,20 @@ mode "sticky small window" {
         bindsym Escape sticky disable; mode "default"
 }
 
+## Modify // Sticky Small Window Mode // <*> v ##
 bindsym $mod+v mode "sticky small window"
 
 # move workspace to another screen
+## Modify // Move workspace to left screen // <*><Meta><Shift> h ##
 bindsym $meta+$mod+Shift+h move workspace to output left
+## Modify // Move workspace to right screen // <*><Meta><Shift> l ##
 bindsym $meta+$mod+Shift+l move workspace to output right
 # bindsym $meta+Control+Shift+s exec ~/.i3/i3-display-swap.sh
 
 # move scratchpad
+## Modify // Move scratchpad to left screen // <*><Meta> h ##
 bindsym $meta+$mod+h move container to output left; focus output left
+## Modify // Move scratchpad to right screen // <*><Meta> l ##
 bindsym $meta+$mod+l move container to output right; focus output right
 # bindsym $meta+$mod+o focus container to oupt
 
@@ -532,8 +544,10 @@ bindsym $meta+$mod+l move container to output right; focus output right
 # button3 - right click
 
 # The middle button and a modifer over any part of the window kills the window
+## Mouse // Kill window // <*> wheel click ##
 bindsym --whole-window $mod+button2 kill
 
+## Mouse // Full screen toggle // <*> right click ##
 bindsym --whole-window $mod+button3 fullscreen
 
 # button4 - wheel up
@@ -541,35 +555,49 @@ bindsym --whole-window $mod+button3 fullscreen
 
 # The left button and a modifer over any part of the window puts in the
 # scratchpad or hides it if it is already in one
+## Mouse // Move to scratchpad // <*> wheel up ##
 bindsym --whole-window $mod+button4 exec xdotool key "super+y"
 # bindsym --whole-window $mod+button4 scratchpad show
+## Mouse // Show scratchpad // <*><Shift> wheel down ##
 bindsym --whole-window $mod+Shift+button4 move to scratchpad
 
 # wheel down, floating toggle
+## Mouse // Toggle Floating // <*> wheel down ##
 bindsym --whole-window $mod+button5 focus; floating toggle
 
+## Mouse // Move window // <*> second side button ##
 bindsym --whole-window $mod+button8 focus; move left
+## Mouse // Move window // <*> first side button ##
 bindsym --whole-window $mod+button9 focus; move right
 
+## Mouse // Cycle layouts // <*><Shift> first side button ##
 bindsym --whole-window $mod+Shift+button9 focus; layout toggle tabbed stacked splith splitv default
+## Mouse // Scratchpad show // <*><Shift> second side button ##
 bindsym --whole-window $mod+Shift+button8 focus; scratchpad show
 # ---------------------------------------------------------------------------------
 # Toggle sticky state of a window (a floating window that appears in all workspaces)
+## Modify // Toggle Sticky Window // <*><Ctrl> Return ##
 bindsym $mod+Ctrl+Return sticky toggle
 
 # split in horizontal orientation
+## Modify // Split horitzontaly // <*> 7 ##
 bindsym $mod+7 split h
 
 # split in vertical orientation
+## Modify // Split vertically // <*> v ##
 bindsym $mod+8 split v
 
 # enter fullscreen mode for the focused container
 # FIXME: Not working!
+## Modify // Toggle Fullscreen // <*> o ##
 bindsym $mod+o fullscreen
 
 # change container layout (stacked, tabbed, default)
+## Modify // Stacking layout // <*> u ##
 bindsym $mod+u layout stacking
+## Modify // Tabbed layout // <*> i ##
 bindsym $mod+i layout tabbed
+## Modify // Default layout // <*> p ##
 bindsym $mod+p layout default
 
 # redshift
@@ -584,6 +612,7 @@ mode "redshift" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+## Modify // RedShift Mode // <*><Ctrl> p ##
 bindsym $mod+Ctrl+p mode "redshift"
 
 exec --no-startup-id xmodmap $HOME/.Xmodmap
