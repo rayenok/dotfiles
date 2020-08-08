@@ -115,6 +115,7 @@ bindsym $mod+Right focus right
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
+# FIXME: Not working!!
 bindsym $mod+l focus right
 
 ## Navigate // Workspaces 1-10 // <*> 0..9 ##
@@ -563,6 +564,7 @@ bindsym $mod+7 split h
 bindsym $mod+8 split v
 
 # enter fullscreen mode for the focused container
+# FIXME: Not working!
 bindsym $mod+o fullscreen
 
 # change container layout (stacked, tabbed, default)
