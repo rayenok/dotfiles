@@ -173,9 +173,8 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 ## Modify // Next Window Orientation // <*> Backspace ##
 bindsym $mod+BackSpace split toggle
 
-## Modify // Window Fullscreen Toggle // <*> f ##
-# NOTE: Since $mod+o is not working, using $mod+f instead (temporal fix)
-bindsym $mod+f fullscreen toggle
+## Modify // Window Fullscreen Toggle // <*> o ##
+bindsym $mod+o fullscreen toggle
 
 ## Modify // Window Floating Toggle // <*> z ##
 bindsym $mod+z floating toggle
@@ -586,11 +585,6 @@ bindsym $mod+7 split h
 # split in vertical orientation
 ## Modify // Split vertically // <*> v ##
 bindsym $mod+8 split v
-
-# enter fullscreen mode for the focused container
-# FIXME: Not working!
-## Modify // Toggle Fullscreen // <*> o ##
-bindsym $mod+o fullscreen
 
 # change container layout (stacked, tabbed, default)
 ## Modify // Stacking layout // <*> u ##
