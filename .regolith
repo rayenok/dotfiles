@@ -550,6 +550,20 @@ bindsym $mod+u layout stacking
 bindsym $mod+i layout tabbed
 bindsym $mod+p layout default
 
+# redshift
+mode "redshift" {
+        # bindsym $mod+k fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 0 54
+        # bindsym $mod+j fullscreen disable; floating enable; resize set 670 470; sticky enable; move window to position 0 950
+        bindsym $mod+h exec redshift -P -O 1500K
+        bindsym $mod+j exec redshift -P -O 2500K
+        bindsym $mod+k exec redshift -P -O 3500K
+        bindsym $mod+l exec redshift -x
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Ctrl+p mode "redshift"
+
 exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id timedatectl set-timezone Europe/Madrid
 exec --no-startup-id kitty --class "scratch-term"
