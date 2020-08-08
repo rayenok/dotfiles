@@ -523,16 +523,34 @@ bindsym $meta+$mod+l move container to output right; focus output right
 # bindsym $meta+$mod+o focus container to oupt
 
 # Mouse shortcuts
-# The middle button over a titlebar kills the window
-bindsym --release button2 kill
+# ---------------------------------------------------------------------------------
+# button1 - left click
+# button2 - wheel click
+# button3 - right click
 
 # The middle button and a modifer over any part of the window kills the window
 bindsym --whole-window $mod+button2 kill
 
+bindsym --whole-window $mod+button3 fullscreen
+
+# button4 - wheel up
+# button5 - wheel down
+
 # The left button and a modifer over any part of the window puts in the
 # scratchpad or hides it if it is already in one
-bindsym --whole-window $mod+button4 scratchpad show
+bindsym --whole-window $mod+button4 exec xdotool key "super+y"
+# bindsym --whole-window $mod+button4 scratchpad show
+bindsym --whole-window $mod+Shift+button4 move to scratchpad
 
+# wheel down, floating toggle
+bindsym --whole-window $mod+button5 focus; floating toggle
+
+bindsym --whole-window $mod+button8 focus; move left
+bindsym --whole-window $mod+button9 focus; move right
+
+bindsym --whole-window $mod+Shift+button9 focus; layout toggle tabbed stacked splith splitv default
+bindsym --whole-window $mod+Shift+button8 focus; scratchpad show
+# ---------------------------------------------------------------------------------
 # Toggle sticky state of a window (a floating window that appears in all workspaces)
 bindsym $mod+Ctrl+Return sticky toggle
 
