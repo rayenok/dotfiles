@@ -79,6 +79,10 @@ plugins=(
   encode64
 )
 
+# Do not close tmux/shell windows while attempting to deattach from another process
+setopt ignoreeof
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
