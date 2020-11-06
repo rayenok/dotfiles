@@ -84,6 +84,7 @@ plugins=(
 # Do not close tmux/shell windows while attempting to deattach from another process
 setopt ignoreeof
 
+alias ed='emacsclient -n'
 
 source $ZSH/oh-my-zsh.sh
 
