@@ -73,7 +73,7 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 ###############################################################################
 
 ## Launch // Terminal // <*> Enter ##
-bindsym $mod+Return exec kitty
+##bindsym $mod+Return exec kitty
 
 ## Launch // Terminal for scratchpad // <*><Meta> Enter ##
 bindsym $mod+$meta+Return exec kitty --class "scratch-term"
@@ -478,7 +478,7 @@ for_window [class="(?i)scratch-term"] mark "terminal"
 for_window [con_mark="terminal"] floating disable
 for_window [con_mark="terminal"] move scratchpad
 ## Scratchpad // Scratchpad Show Terminal // <*> less ##
-bindsym $mod+less [con_mark="terminal"] scratchpad show
+bindsym $mod+Return [con_mark="terminal"] scratchpad show
 
 # Scratchpad quick containers
 ## Scratchpad // Scratchpad Show Alpha // <*> a ##
