@@ -84,6 +84,7 @@ This function should only modify configuration layer settings."
                                       org-roam
                                       ob-go
                                       ob-rust
+                                      ranger
                                       )
 
    ;; A list of packages that cannot be updated.
