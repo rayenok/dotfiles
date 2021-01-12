@@ -82,6 +82,8 @@ This function should only modify configuration layer settings."
                                       i3wm-config-mode
                                       pdf-tools
                                       org-roam
+                                      ob-go
+                                      ob-rust
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -581,10 +583,10 @@ before packages are loaded."
      ;; (gnu-plot . t)
      ;; (sh . t)
      (js . t)
-     (go . t)
      (makefile . t)
      (org . t)
      (java . t)
+     (go . t)
      (rust . t)
      (R . t)
      (sqlite . t)
