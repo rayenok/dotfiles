@@ -573,6 +573,17 @@ before packages are loaded."
     ;; may set the path to the tmux binary as follows:
     (org-babel-tmux-location "/usr/bin/tmux"))
 
+  (use-package eyebrowse
+    :config
+    (spacemacs/set-leader-keys (kbd "oc") 'spacemacs/workspaces-transient-state/eyebrowse-create-window-config-and-exit)
+    (spacemacs/set-leader-keys (kbd "od") 'spacemacs/workspaces-transient-state/eyebrowse-close-window-config )
+    (spacemacs/set-leader-keys (kbd "o,") 'eyebrowse-rename-window-config)
+    (spacemacs/set-leader-keys (kbd "oo") 'spacemacs/workspaces-transient-state/eyebrowse-switch-to-window-config-and-exit)
+    (spacemacs/set-leader-keys (kbd "o.") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
+    (spacemacs/set-leader-keys (kbd "ol") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
+    (setq eyebrowse-new-workspace nil)
+    )
+
   (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
   (use-package evil
