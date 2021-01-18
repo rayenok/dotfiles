@@ -551,8 +551,13 @@ before packages are loaded."
 
   ;; for some reason this shortcut disappeared, so i had to add it again
   (spacemacs/set-leader-keys (kbd "fg") 'rgrep)
-  ;; almost never want to use dired direclty, so changing the shortcut
-  (spacemacs/set-leader-keys (kbd "ad") 'deer)
+
+  (use-package ranger
+    :config
+    ;; almost never want to use dired direclty, so changing the shortcut
+    (spacemacs/set-leader-keys (kbd "ad") 'deer)
+    )
+
   (use-package pdf-tools
     :ensure t
     :config
