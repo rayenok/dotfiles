@@ -77,6 +77,7 @@ bindsym $mod+$meta+Ctrl+j move workspace to output down
 bindsym $mod+$meta+Ctrl+k move workspace to output up
 bindsym $mod+$meta+Ctrl+l move workspace to output right
 
+workspace_layout tabbed
 bindsym $mod+BackSpace layout toggle tabbed stacked splith splitv
 bindsym $mod+u layout stacking
 bindsym $mod+i layout tabbed
