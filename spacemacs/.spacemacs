@@ -551,6 +551,7 @@ before packages are loaded."
 
   ;; for some reason this shortcut disappeared, so i had to add it again
   (spacemacs/set-leader-keys (kbd "fg") 'rgrep)
+  (spacemacs/set-leader-keys (kbd "rS") 'purpose-toggle-window-buffer-dedicated)
 
   (use-package ranger
     :config
