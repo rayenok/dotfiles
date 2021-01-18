@@ -106,6 +106,9 @@ floating_modifier $mod
 
 hide_edge_borders smart
 
+# Force all windows to have a border when focused
+for_window [class=.*] border pixel 3 title_format "<span size='smaller' font='Roboto 12'>%title</span>"
+
 for_window [class="(?i)kitty"] mark "terminal"
 for_window [con_mark="terminal"] floating disable
 for_window [con_mark="terminal"] move scratchpad
