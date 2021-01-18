@@ -121,9 +121,9 @@ bindsym $mod+p [con_mark="terminal"] scratchpad show
 ###############################################################################
 
 mode "exit: [l]ogout [r]eboot [s]hutdown [b]lock [s]leep" {
-     bindsym l exec $i3-wm.program.logout
-     bindsym r exec $i3-wm.program.reboot
-     bindsym s exec $i3-wm.program.shutdown
+     bindsym l exec gnome-session-quit
+     bindsym r exec reboot
+     bindsym s exec shutdown now
      bindsym b exec i3lock
      bindsym s exec $i3-wm.program.sleep
      bindsym Escape mode "default"
