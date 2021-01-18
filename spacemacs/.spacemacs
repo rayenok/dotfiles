@@ -51,6 +51,7 @@ This function should only modify configuration layer settings."
      rust
      python
      cscope
+     pdf
      ;; ranger
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -552,6 +553,13 @@ before packages are loaded."
   (spacemacs/set-leader-keys (kbd "fg") 'rgrep)
   ;; almost never want to use dired direclty, so changing the shortcut
   (spacemacs/set-leader-keys (kbd "ad") 'deer)
+  (use-package pdf-tools
+    :ensure t
+    :config
+    (pdf-tools-install)
+    (setq-default pdf-view-display-size 'fit-page)
+    )
+
 
   (use-package ob-tmux
     ; Install package automatically (optional)
@@ -595,6 +603,8 @@ before packages are loaded."
                 (unbind-key "C-p"   evil-insert-state-map)
                 (unbind-key "M-SPC" evil-insert-state-map)
                 (unbind-key "C-SPC" evil-insert-state-map)
+                (setq scroll-conservatively 0)
+                (setq scroll-margin 0)
                 :bind
                 (("C-a" .      'evil-numbers/inc-at-pt)
                  ("C-S-a" .    'evil-numbers/dec-at-pt)
