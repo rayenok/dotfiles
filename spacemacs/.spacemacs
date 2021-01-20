@@ -567,6 +567,8 @@ before packages are loaded."
     (setq-default pdf-view-display-size 'fit-page)
     )
 
+  (setq isearch-allow-scroll t)
+
 
   (use-package ob-tmux
     ; Install package automatically (optional)
