@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
      (org :variables org-enable-roam-support t)
      go
      rust
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      python
      cscope
      pdf
