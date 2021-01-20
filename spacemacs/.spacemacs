@@ -569,6 +569,13 @@ before packages are loaded."
 
   (setq isearch-allow-scroll t)
 
+  (use-package auto-highlight-symbol
+                                        ; this only installs it for programming mode derivatives; you can also make it global...
+    :init (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+    :bind (:map auto-highlight-symbol-mode-map
+                ("M-p" . ahs-backward)
+                ("M-n" . ahs-forward)))
+
 
   (use-package ob-tmux
     ; Install package automatically (optional)
