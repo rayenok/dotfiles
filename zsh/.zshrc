@@ -90,6 +90,8 @@ plugins=(
 setopt ignoreeof
 
 alias ed='emacsclient -n'
+alias vim='nvim'
+alias oldvim='vim'
 
 source $ZSH/oh-my-zsh.sh
 

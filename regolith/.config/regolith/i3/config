@@ -326,6 +326,7 @@ bindsym --whole-window $mod+Shift+button8 focus; scratchpad show
 
 exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id timedatectl set-timezone Europe/Madrid
+# exec_always --no-startup-id $HOME/.cargo/bin/i3wsr --remove-duplicates
 ###############################################################################
 # External programs launched with i3
 ###############################################################################
