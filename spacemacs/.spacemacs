@@ -624,7 +624,7 @@ before packages are loaded."
                 :bind
                 (("C-a" .      'evil-numbers/inc-at-pt)
                  ("C-S-a" .    'evil-numbers/dec-at-pt)
-                 ("C-q" .      'fill-region)
+                 ("C-q" .      'fill-paragraph)
                  ("M-q" .      'quoted-insert)
                  ("C-SPC" .    'helm-dabbrev)
                  )
