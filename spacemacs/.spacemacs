@@ -259,10 +259,15 @@ It should only modify the values of Spacemacs settings."
    ;;                             :size 10.0
    ;;                             :weight normal
    ;;                             :width normal)
-   dotspacemacs-default-font '("Fira Code"
-                               :size 11.0
-                               :weight normal
-                               :width normal)
+   dotspacemacs-default-font '(("Fira Code"
+                                :size 11.0
+                                :weight normal
+                                :width normal)
+                               ("Source Code Pro"
+                                :size 11.0
+                                :weight normal
+                                :width normal)
+                               )
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
