@@ -602,15 +602,14 @@ before packages are loaded."
     ;; may set the path to the tmux binary as follows:
     (org-babel-tmux-location "/usr/bin/tmux"))
 
-  (use-package eyebrowse
-    :config
-    (spacemacs/set-leader-keys (kbd "oc") 'spacemacs/workspaces-transient-state/eyebrowse-create-window-config-and-exit)
-    (spacemacs/set-leader-keys (kbd "od") 'spacemacs/workspaces-transient-state/eyebrowse-close-window-config )
-    (spacemacs/set-leader-keys (kbd "o,") 'eyebrowse-rename-window-config)
-    (spacemacs/set-leader-keys (kbd "oo") 'spacemacs/workspaces-transient-state/eyebrowse-switch-to-window-config-and-exit)
-    (spacemacs/set-leader-keys (kbd "o.") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
-    (spacemacs/set-leader-keys (kbd "ol") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
-    (setq eyebrowse-new-workspace nil)
+
+
+  (defun eyebrowse-create-and-focus()
+    (interactive)
+    (progn
+      (eyebrowse-create-window-config)
+      (spacemacs/toggle-maximize-buffer)
+      )
     )
 
   (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
@@ -656,6 +655,21 @@ before packages are loaded."
      (sqlite . t)
      (plantuml . t)
      (shell . t)))
+
+  (use-package eyebrowse
+    :ensure t
+    :config
+    (spacemacs/set-leader-keys (kbd "oc") 'eyebrowse-create-and-focus)
+    (spacemacs/set-leader-keys (kbd "od") 'spacemacs/workspaces-transient-state/eyebrowse-close-window-config )
+    (spacemacs/set-leader-keys (kbd "o,") 'eyebrowse-rename-window-config)
+    (spacemacs/set-leader-keys (kbd "oo") 'spacemacs/workspaces-transient-state/eyebrowse-switch-to-window-config-and-exit)
+    (spacemacs/set-leader-keys (kbd "o.") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
+    (spacemacs/set-leader-keys (kbd "ol") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
+    )
+
+  ;; Add this config line to make sure that it clones the view instead of creating a new one
+  ;; NOTE: Do not move. For some reason, it gets changed by spacemacs if i do.
+  (setq eyebrowse-new-workspace nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
