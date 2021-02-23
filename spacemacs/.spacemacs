@@ -44,6 +44,7 @@ This function should only modify configuration layer settings."
      git
      helm
      (lsp :variables lsp-pyls-plugins-pycodestyle-enabled nil lsp-signature-render-documentation nil)
+     (c-c++ :variables c-c++-backend 'lsp-clangd)
      ;; markdown
      multiple-cursors
      (org :variables org-enable-roam-support t)
