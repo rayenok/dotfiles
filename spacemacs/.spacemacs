@@ -43,7 +43,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      helm
-     (lsp :variables lsp-pyls-plugins-pycodestyle-enabled nil)
+     (lsp :variables lsp-pyls-plugins-pycodestyle-enabled nil lsp-signature-render-documentation nil)
      ;; markdown
      multiple-cursors
      (org :variables org-enable-roam-support t)
