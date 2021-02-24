@@ -43,7 +43,8 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      helm
-     lsp
+     (lsp :variables lsp-pyls-plugins-pycodestyle-enabled nil lsp-signature-render-documentation nil)
+     (c-c++ :variables c-c++-backend 'lsp-clangd)
      ;; markdown
      multiple-cursors
      (org :variables org-enable-roam-support t)
@@ -259,10 +260,15 @@ It should only modify the values of Spacemacs settings."
    ;;                             :size 10.0
    ;;                             :weight normal
    ;;                             :width normal)
-   dotspacemacs-default-font '("Fira Code"
-                               :size 11.0
-                               :weight normal
-                               :width normal)
+   dotspacemacs-default-font '(("Fira Code"
+                                :size 11.0
+                                :weight normal
+                                :width normal)
+                               ("Source Code Pro"
+                                :size 11.0
+                                :weight normal
+                                :width normal)
+                               )
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
@@ -567,6 +573,15 @@ before packages are loaded."
     (setq-default pdf-view-display-size 'fit-page)
     )
 
+  (setq isearch-allow-scroll t)
+
+  (use-package auto-highlight-symbol
+                                        ; this only installs it for programming mode derivatives; you can also make it global...
+    :init (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+    :bind (:map auto-highlight-symbol-mode-map
+                ("M-p" . ahs-backward)
+                ("M-n" . ahs-forward)))
+
 
   (use-package ob-tmux
     ; Install package automatically (optional)
@@ -588,15 +603,14 @@ before packages are loaded."
     ;; may set the path to the tmux binary as follows:
     (org-babel-tmux-location "/usr/bin/tmux"))
 
-  (use-package eyebrowse
-    :config
-    (spacemacs/set-leader-keys (kbd "oc") 'spacemacs/workspaces-transient-state/eyebrowse-create-window-config-and-exit)
-    (spacemacs/set-leader-keys (kbd "od") 'spacemacs/workspaces-transient-state/eyebrowse-close-window-config )
-    (spacemacs/set-leader-keys (kbd "o,") 'eyebrowse-rename-window-config)
-    (spacemacs/set-leader-keys (kbd "oo") 'spacemacs/workspaces-transient-state/eyebrowse-switch-to-window-config-and-exit)
-    (spacemacs/set-leader-keys (kbd "o.") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
-    (spacemacs/set-leader-keys (kbd "ol") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
-    (setq eyebrowse-new-workspace nil)
+
+
+  (defun eyebrowse-create-and-focus()
+    (interactive)
+    (progn
+      (eyebrowse-create-window-config)
+      (spacemacs/toggle-maximize-buffer)
+      )
     )
 
   (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
@@ -615,7 +629,7 @@ before packages are loaded."
                 :bind
                 (("C-a" .      'evil-numbers/inc-at-pt)
                  ("C-S-a" .    'evil-numbers/dec-at-pt)
-                 ("C-q" .      'fill-region)
+                 ("C-q" .      'fill-paragraph)
                  ("M-q" .      'quoted-insert)
                  ("C-SPC" .    'helm-dabbrev)
                  )
@@ -642,6 +656,21 @@ before packages are loaded."
      (sqlite . t)
      (plantuml . t)
      (shell . t)))
+
+  (use-package eyebrowse
+    :ensure t
+    :config
+    (spacemacs/set-leader-keys (kbd "oc") 'eyebrowse-create-and-focus)
+    (spacemacs/set-leader-keys (kbd "od") 'spacemacs/workspaces-transient-state/eyebrowse-close-window-config )
+    (spacemacs/set-leader-keys (kbd "o,") 'eyebrowse-rename-window-config)
+    (spacemacs/set-leader-keys (kbd "oo") 'spacemacs/workspaces-transient-state/eyebrowse-switch-to-window-config-and-exit)
+    (spacemacs/set-leader-keys (kbd "o.") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
+    (spacemacs/set-leader-keys (kbd "ol") 'spacemacs/workspaces-transient-state/eyebrowse-last-window-config)
+    )
+
+  ;; Add this config line to make sure that it clones the view instead of creating a new one
+  ;; NOTE: Do not move. For some reason, it gets changed by spacemacs if i do.
+  (setq eyebrowse-new-workspace nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
