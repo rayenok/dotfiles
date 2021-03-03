@@ -634,6 +634,30 @@ before packages are loaded."
     (evil-collection-define-key 'normal 'dired-mode-map
       "H" 'dired-hide-dotfiles-mode))
 
+  ;; beautiful org blocks
+
+  (add-hook 'org-mode-hook (lambda ()
+                            "Beautify Org Checkbox Symbol"
+                            ;; (push '("[ ]" .  "☐") prettify-symbols-alist)
+                            ;; (push '("[X]" . "☑" ) prettify-symbols-alist)
+                            ;; (push '("[-]" . "❍" ) prettify-symbols-alist)
+                            (push '("#+BEGIN_SRC" . "λ" ) prettify-symbols-alist)
+                            (push '("#+END_SRC" . "λ" ) prettify-symbols-alist)
+                            (push '("#+BEGIN_EXAMPLE" . "▷" ) prettify-symbols-alist)
+                            (push '("#+END_EXAMPLE" . "◁" ) prettify-symbols-alist)
+                            (push '("#+BEGIN_QUOTE" . "ײ" ) prettify-symbols-alist)
+                            (push '("#+END_QUOTE" . "ײ" ) prettify-symbols-alist)
+                            (push '("#+begin_src" . "λ" ) prettify-symbols-alist)
+                            (push '("#+end_src" . "λ" ) prettify-symbols-alist)
+                            (push '("#+begin_example" . "▷" ) prettify-symbols-alist)
+                            (push '("#+end_example" . "◁" ) prettify-symbols-alist)
+                            (push '("#+begin_quote" . "ײ" ) prettify-symbols-alist)
+                            (push '("#+end_quote" . "ײ" ) prettify-symbols-alist)
+                            (push '("#+RESULTS:" . "»" ) prettify-symbols-alist)
+                            (push '(":PROPERTIES:" . ":" ) prettify-symbols-alist)
+                            (push '(":END:" . ":" ) prettify-symbols-alist)
+                            (push '("#+TBLFM:" . "∫" ) prettify-symbols-alist)
+                            (prettify-symbols-mode)))
   (use-package ob-tmux
     ; Install package automatically (optional)
     :ensure t
