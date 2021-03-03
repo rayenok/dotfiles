@@ -91,6 +91,11 @@ This function should only modify configuration layer settings."
                                       ranger
                                       org-pdftools
                                       org-noter-pdftools
+                                      dired-single
+                                      dired-open
+                                      dired-hide-dotfiles
+                                      all-the-icons-dired 
+                                      helm-dired-recent-dirs
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -562,11 +567,11 @@ before packages are loaded."
   (spacemacs/set-leader-keys (kbd "fg") 'rgrep)
   (spacemacs/set-leader-keys (kbd "rS") 'purpose-toggle-window-buffer-dedicated)
 
-  (use-package ranger
-    :config
-    ;; almost never want to use dired direclty, so changing the shortcut
-    (spacemacs/set-leader-keys (kbd "ad") 'deer)
-    )
+  ;; (use-package ranger
+  ;;   :config
+  ;;   ;; almost never want to use dired direclty, so changing the shortcut
+  ;;   (spacemacs/set-leader-keys (kbd "ad") 'deer)
+  ;;   )
 
   (use-package pdf-tools
     :ensure t
@@ -584,6 +589,50 @@ before packages are loaded."
                 ("M-p" . ahs-backward)
                 ("M-n" . ahs-forward)))
 
+  ;; dired config
+
+  (use-package dired
+    :ensure nil
+    :commands (dired dired-jump)
+    :bind (("C-x C-j" . dired-jump))
+    :custom ((dired-listing-switches "-agho --group-directories-first"))
+    :config
+    (setq dired-dwim-target t)
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "h" 'dired-single-up-directory
+      "l" 'dired-single-buffer
+      )
+    )
+  (use-package dired-single)
+
+  (use-package dired-narrow
+    :after dired
+    :config
+    (setq dired-narrow-exit-when-one-left t)
+    (setq dired-narrow-enable-blinking t)
+    (setq dired-narrow-blink-time 0.3)
+    :bind (:map dired-mode-map
+          ("/" . dired-narrow-fuzzy)))
+
+  (use-package all-the-icons-dired
+    :hook (dired-mode . all-the-icons-dired-mode)
+    )
+
+  (use-package dired-open
+    :config
+    ;; (add-to-list 'dired-open-functions #'dired-open-xdg t)
+    ;; customize dired to open images and videos on external programs
+    (setq dired-open-extensions '(("png" . "feh")
+                                  ("mkv" . "vlc")
+                                  ("pcap" . "wireshark")
+                                  ))
+    )
+
+  (use-package dired-hide-dotfiles
+    :hook (dired-mode . dired-hide-dotfiles-mode)
+    :config
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "H" 'dired-hide-dotfiles-mode))
 
   (use-package ob-tmux
     ; Install package automatically (optional)
