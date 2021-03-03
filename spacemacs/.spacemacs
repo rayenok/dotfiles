@@ -589,6 +589,9 @@ before packages are loaded."
                 ("M-p" . ahs-backward)
                 ("M-n" . ahs-forward)))
 
+  ;; disable global current line highlighting
+  (setq global-hl-line-mode nil)
+
   ;; dired config
 
   (use-package dired
