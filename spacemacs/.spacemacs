@@ -705,11 +705,11 @@ before packages are loaded."
                 (setq scroll-conservatively 0)
                 (setq scroll-margin 0)
                 :bind
-                (("C-a" .      'evil-numbers/inc-at-pt)
-                 ("C-S-a" .    'evil-numbers/dec-at-pt)
-                 ("C-q" .      'fill-paragraph)
-                 ("M-q" .      'quoted-insert)
-                 ("C-SPC" .    'helm-dabbrev)
+                (("M-a" .      'evil-numbers/inc-at-pt)
+                 ("M-S-a" .    'evil-numbers/dec-at-pt)
+                 ("M-q" .      'fill-paragraph)
+                 ("C-q" .      'quoted-insert)
+                 ("M-SPC" .    'helm-dabbrev)
                  )
                 )
 
