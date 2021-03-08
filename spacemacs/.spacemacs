@@ -45,6 +45,8 @@ This function should only modify configuration layer settings."
      helm
      (lsp :variables lsp-pyls-plugins-pycodestyle-enabled nil lsp-signature-render-documentation nil)
      (c-c++ :variables c-c++-backend 'lsp-clangd)
+     (javascript :variables js2-mode-show-strict-warnings nil)
+     html
      ;; markdown
      multiple-cursors
      (org :variables org-enable-roam-support t)
