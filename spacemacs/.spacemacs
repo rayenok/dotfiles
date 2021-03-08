@@ -49,7 +49,7 @@ This function should only modify configuration layer settings."
      html
      ;; markdown
      multiple-cursors
-     (org :variables org-enable-roam-support t)
+     (org :variables org-enable-roam-support t org-enable-org-journal-support t)
      go
      rust
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
