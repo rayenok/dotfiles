@@ -101,3 +101,18 @@ inoremap <C-w> <esc>vbda
 " move one character in insert mode
 inoremap <C-f> <right>
 inoremap <C-b> <left>
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Initialize plugin system
+call plug#end()
+
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('/tmp/lsp.log')
