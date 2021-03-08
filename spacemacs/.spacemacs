@@ -693,6 +693,12 @@ before packages are loaded."
 
   (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
+  (use-package org
+    :config
+    (setq org-startup-folded t)
+    (setq org-startup-indented t)
+    )
+
   (use-package evil
                 :config
                 (unbind-key "C-q"   evil-normal-state-map)
