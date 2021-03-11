@@ -96,7 +96,6 @@ This function should only modify configuration layer settings."
                                       dired-single
                                       dired-open
                                       dired-hide-dotfiles
-                                      all-the-icons-dired 
                                       helm-dired-recent-dirs
                                       )
 
@@ -619,9 +618,6 @@ before packages are loaded."
     :bind (:map dired-mode-map
           ("/" . dired-narrow-fuzzy)))
 
-  (use-package all-the-icons-dired
-    :hook (dired-mode . all-the-icons-dired-mode)
-    )
 
   (use-package dired-open
     :config
