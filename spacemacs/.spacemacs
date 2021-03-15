@@ -671,6 +671,7 @@ before packages are loaded."
     (setq popper-reference-buffers
           '("\\*Messages\\*"
             "Output\\*$"
+            "\\*grep\\*$"
             help-mode
             compilation-mode))
     (popper-mode))
