@@ -665,7 +665,8 @@ before packages are loaded."
     :ensure t
     :bind (("M-y"   . popper-toggle-latest)
            ("C-`"   . popper-cycle)
-           ("M-Y" . popper-toggle-type))
+           ("M-Y" . popper-toggle-type)
+           ("C-M-y" . popper-kill-latest-popup))
     :init
     (setq popper-reference-buffers
           '("\\*Messages\\*"
