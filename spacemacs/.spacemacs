@@ -96,6 +96,7 @@ This function should only modify configuration layer settings."
                                       dired-single
                                       dired-open
                                       dired-hide-dotfiles
+                                      popper
                                       helm-dired-recent-dirs
                                       )
 
@@ -659,6 +660,20 @@ before packages are loaded."
                             (push '(":END:" . ":" ) prettify-symbols-alist)
                             (push '("#+TBLFM:" . "∫" ) prettify-symbols-alist)
                             (prettify-symbols-mode)))
+
+  (use-package popper
+    :ensure t
+    :bind (("M-y"   . popper-toggle-latest)
+           ("C-`"   . popper-cycle)
+           ("M-Y" . popper-toggle-type))
+    :init
+    (setq popper-reference-buffers
+          '("\\*Messages\\*"
+            "Output\\*$"
+            help-mode
+            compilation-mode))
+    (popper-mode))
+
   (use-package ob-tmux
     ; Install package automatically (optional)
     :ensure t
