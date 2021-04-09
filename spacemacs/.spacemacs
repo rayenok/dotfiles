@@ -98,6 +98,7 @@ This function should only modify configuration layer settings."
                                       dired-hide-dotfiles
                                       popper
                                       helm-dired-recent-dirs
+                                      good-scroll
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -580,6 +581,12 @@ before packages are loaded."
     :config
     (pdf-tools-install)
     (setq-default pdf-view-display-size 'fit-page)
+    )
+
+  (use-package good-scroll
+    :ensure t
+    :config
+    (good-scroll-mode)
     )
 
   (setq isearch-allow-scroll t)
