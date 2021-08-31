@@ -9,7 +9,9 @@ export PATH=$PATH:$HOME/.cargo/bin/:$HOME/go/bin/
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="jovial"
+#ZSH_THEME="jovial"
+#ZSH_THEME="half-life"
+ZSH_THEME="af-magic"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -66,24 +68,24 @@ ZSH_THEME="jovial"
 plugins=(
   git
   wd
-  web-search
+  #web-search
   #vi-mode
-  urltools
+  #urltools
   tmux
   sudo
   python
-  pyenv
-  pip
-  mercurial
+  #pyenv
+  #pip
+  #mercurial
   last-working-dir
   jsontools
-  encode64
+  #encode64
   docker
   docker-compose
-  colored-man-pages
-  golang
-  emoji
-  # zsh-syntax-highlighting
+  #colored-man-pages
+  #golang
+  #emoji
+  #zsh-syntax-highlighting
 )
 
 # Do not close tmux/shell windows while attempting to deattach from another process
