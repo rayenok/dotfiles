@@ -1,0 +1,3 @@
+i3-wm.binding.scratchpad: y
+i3-wm.binding.show.terminal: F1
+#i3-wm.binding.launcher.app: $alt+F2
